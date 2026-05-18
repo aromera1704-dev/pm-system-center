@@ -9,21 +9,21 @@ export function CommandBar() {
       transition={{ delay: 0.3 }}
       className="relative group"
     >
-      <div className="relative bg-white border border-gray-200 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:border-gray-300">
+      <div className="relative bg-[var(--pm-surface-primary)] border border-[var(--pm-border-default)] rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:border-[var(--pm-border-strong)]">
         <div className="flex items-center gap-4">
-          <div className="flex items-center justify-center w-11 h-11 rounded-xl bg-gradient-to-br from-[#2563EB] to-[#FC10A3] shadow-md">
-            <Sparkles className="w-5 h-5 text-white" />
+          <div className="flex items-center justify-center w-11 h-11 rounded-xl bg-gradient-to-br from-[var(--pm-primary-blue)] to-[var(--pm-ai-magenta)] shadow-md">
+            <Sparkles className="w-5 h-5 text-[var(--pm-text-inverse)]" />
           </div>
 
           <input
             type="text"
             placeholder="¿Qué quieres revisar o lanzar?"
-            className="flex-1 bg-transparent text-lg text-gray-900 placeholder:text-gray-400 focus:outline-none font-medium"
+            className="flex-1 bg-transparent text-lg text-[var(--pm-text-primary)] placeholder:text-[var(--pm-text-tertiary)] focus:outline-none font-medium"
           />
 
           <div className="flex items-center gap-2">
-            <kbd className="px-3 py-1.5 text-xs text-gray-600 bg-gray-50 rounded-lg border border-gray-200 font-medium shadow-sm">⌘K</kbd>
-            <Search className="w-5 h-5 text-gray-400" />
+            <kbd className="px-3 py-1.5 text-xs text-[var(--pm-text-secondary)] bg-[var(--pm-surface-secondary)] rounded-lg border border-[var(--pm-border-default)] font-medium shadow-sm">⌘K</kbd>
+            <Search className="w-5 h-5 text-[var(--pm-text-tertiary)]" />
           </div>
         </div>
       </div>

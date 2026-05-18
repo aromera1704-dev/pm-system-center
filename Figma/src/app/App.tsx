@@ -12,7 +12,7 @@ import { RecentActivity } from './components/v7/recent-activity';
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-[#F9FAFB] relative overflow-hidden">
+    <div className="min-h-screen bg-[var(--pm-bg-primary)] relative overflow-hidden">
       {/* Subtle ambient gradients - Premium Blue + AI Magenta */}
       <div className="fixed inset-0 pointer-events-none">
         <motion.div
@@ -24,7 +24,7 @@ export default function App() {
             repeat: Infinity,
             ease: 'easeInOut',
           }}
-          className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-[#2563EB] rounded-full blur-[150px]"
+          className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-[var(--pm-primary-blue)] rounded-full blur-[150px]"
         />
         <motion.div
           animate={{
@@ -36,7 +36,7 @@ export default function App() {
             ease: 'easeInOut',
             delay: 3,
           }}
-          className="absolute bottom-0 right-1/4 w-[450px] h-[450px] bg-[#FC10A3] rounded-full blur-[150px]"
+          className="absolute bottom-0 right-1/4 w-[450px] h-[450px] bg-[var(--pm-ai-magenta)] rounded-full blur-[150px]"
         />
       </div>
 
@@ -45,11 +45,6 @@ export default function App() {
 
       {/* Status Bar */}
       <StatusBar />
-
-      {/* Version indicator */}
-      <div className="fixed bottom-4 right-4 px-3 py-1.5 rounded-lg bg-white/90 backdrop-blur-md border border-gray-200 text-xs text-gray-500 z-50 shadow-sm font-medium">
-        V7 — Premium Blue + AI Magenta (PM Mail Identity)
-      </div>
 
       {/* Main content */}
       <div className="ml-20 min-h-screen flex pt-14">
@@ -62,12 +57,9 @@ export default function App() {
             transition={{ duration: 0.8 }}
             className="mb-12"
           >
-            <h1 className="text-7xl font-bold text-gray-900 mb-4 tracking-tight">
+            <h1 className="text-7xl font-bold text-[var(--pm-text-primary)] mb-4 tracking-tight">
               Centro de Operaciones
             </h1>
-            <p className="text-xl text-gray-600 max-w-2xl leading-relaxed mb-8">
-              Un único lugar para gobernar proyectos, sistemas y automatización.
-            </p>
             <LiveMetrics />
           </motion.div>
 
@@ -82,7 +74,7 @@ export default function App() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4 }}
-              className="text-sm uppercase tracking-wider text-gray-500 mb-6 font-semibold"
+              className="text-sm uppercase tracking-wider text-[var(--pm-text-secondary)] mb-6 font-semibold"
             >
               Acciones Rápidas
             </motion.h2>
@@ -95,7 +87,7 @@ export default function App() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.8 }}
-              className="text-sm uppercase tracking-wider text-gray-500 mb-4 font-semibold"
+              className="text-sm uppercase tracking-wider text-[var(--pm-text-secondary)] mb-4 font-semibold"
             >
               Actividad y Estado
             </motion.h2>
@@ -113,8 +105,8 @@ export default function App() {
               transition={{ delay: 0.6 }}
               className="text-center mb-6"
             >
-              <h3 className="text-sm font-semibold text-gray-900 uppercase tracking-wide mb-1">Módulos del Sistema</h3>
-              <p className="text-xs text-gray-500">Estado en tiempo real</p>
+              <h3 className="text-sm font-semibold text-[var(--pm-text-primary)] uppercase tracking-wide mb-1">Módulos del Sistema</h3>
+              <p className="text-xs text-[var(--pm-text-secondary)]">Estado en tiempo real</p>
             </motion.div>
 
             {/* Orbital Core */}
