@@ -1,5 +1,11 @@
 # PM-System — Centro de Operaciones
 
+> Estado actual: `LEGACY VISUAL`
+>
+> La app activa empieza a vivir fuera de `Figma`, en la raíz del proyecto bajo `src/`.
+>
+> `Figma/` se conserva como histórico visual y documental. No debe seguir tratándose como la ubicación principal de la app real.
+
 Un centro de operaciones industrial premium para gestionar proyectos, sistemas y automatización.
 
 ## 🎨 Estado Visual Actual
