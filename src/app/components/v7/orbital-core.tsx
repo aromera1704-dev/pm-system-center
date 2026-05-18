@@ -1,6 +1,8 @@
 import { motion } from 'motion/react';
 import { Layers, Shield, Workflow, GitBranch, FileText, Bot, BarChart3, Zap } from 'lucide-react';
 
+// TODO: Reconciliar módulos navegables con src/app/navigation.ts
+// cuando el orbital consuma destinos reales del shell.
 const modules = [
   { name: 'Project_Hub', icon: Layers, angle: 0, color: 'var(--pm-primary-blue)', bg: 'var(--pm-primary-blue)', status: 'active' },
   { name: 'Control_PEM', icon: Shield, angle: 45, color: 'var(--pm-primary-blue)', bg: 'var(--pm-primary-blue)', status: 'active' },

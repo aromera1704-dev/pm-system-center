@@ -1,6 +1,8 @@
 import { motion } from 'motion/react';
 import { FolderOpen, Building2, FileCheck, Workflow, FileText, Shield } from 'lucide-react';
 
+// TODO: Reconciliar acciones ligadas a módulos con src/app/navigation.ts
+// cuando se defina navegación contextual por destino.
 const actions = [
   { label: 'Revisar proyecto', icon: FolderOpen, color: 'var(--pm-action-primary)', count: '12' },
   { label: 'Estado de obra', icon: Building2, color: 'var(--pm-warning)', count: '3' },
