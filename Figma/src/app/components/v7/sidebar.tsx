@@ -11,10 +11,10 @@ export function Sidebar() {
   ];
 
   return (
-    <div className="fixed left-0 top-0 h-screen w-20 bg-white border-r border-gray-200 flex flex-col items-center py-8 z-50 shadow-sm">
+    <div className="fixed left-0 top-0 h-screen w-20 bg-[var(--pm-surface-primary)] border-r border-[var(--pm-border-default)] flex flex-col items-center py-8 z-50 shadow-sm">
       {/* Logo */}
-      <div className="mb-12 flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-[#2563EB] to-[#FC10A3] shadow-lg">
-        <span className="text-xl font-bold text-white">PM</span>
+      <div className="mb-12 flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-[var(--pm-primary-blue)] to-[var(--pm-ai-magenta)] shadow-lg">
+        <span className="text-xl font-bold text-[var(--pm-text-inverse)]">PM</span>
       </div>
 
       {/* Navigation */}
@@ -24,13 +24,13 @@ export function Sidebar() {
             key={index}
             className={`group relative flex items-center justify-center w-12 h-12 rounded-xl transition-all duration-300 ${
               item.active
-                ? 'bg-[#2563EB]/10 text-[#2563EB] shadow-sm'
-                : 'text-gray-500 hover:text-[#2563EB] hover:bg-gray-50'
+                ? 'bg-[var(--pm-soft-blue-bg)] text-[var(--pm-link)] shadow-sm'
+                : 'text-[var(--pm-text-secondary)] hover:text-[var(--pm-link)] hover:bg-[var(--pm-surface-secondary)]'
             }`}
             title={item.label}
           >
             <item.icon className="w-5 h-5" />
-            <div className="absolute left-full ml-3 px-3 py-1.5 bg-gray-900 backdrop-blur-md rounded-lg text-sm text-white opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap shadow-xl">
+            <div className="absolute left-full ml-3 px-3 py-1.5 bg-[var(--pm-surface-tooltip)] backdrop-blur-md rounded-lg text-sm text-[var(--pm-surface-tooltip-foreground)] opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap shadow-xl">
               {item.label}
             </div>
           </button>
@@ -38,7 +38,7 @@ export function Sidebar() {
       </nav>
 
       {/* Settings */}
-      <button className="flex items-center justify-center w-12 h-12 rounded-xl text-gray-500 hover:text-[#2563EB] transition-all duration-300 hover:bg-gray-50">
+      <button className="flex items-center justify-center w-12 h-12 rounded-xl text-[var(--pm-text-secondary)] hover:text-[var(--pm-link)] transition-all duration-300 hover:bg-[var(--pm-surface-secondary)]">
         <Settings className="w-5 h-5" />
       </button>
     </div>
