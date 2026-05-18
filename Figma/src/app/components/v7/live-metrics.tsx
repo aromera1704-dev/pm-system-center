@@ -19,16 +19,16 @@ export function LiveMetrics() {
       {metrics.map((metric, index) => (
         <div
           key={metric.label}
-          className="flex items-center gap-3 px-5 py-3 rounded-xl bg-white border border-gray-200 shadow-md hover:shadow-lg transition-shadow duration-300"
+          className="flex items-center gap-3 px-5 py-3 rounded-xl bg-[var(--pm-surface-primary)] border border-[var(--pm-border-default)] shadow-md hover:shadow-lg transition-shadow duration-300"
         >
           <div className="flex flex-col">
-            <span className="text-xs text-gray-500 uppercase tracking-wide font-medium">{metric.label}</span>
+            <span className="text-xs text-[var(--pm-text-secondary)] uppercase tracking-wide font-medium">{metric.label}</span>
             <div className="flex items-baseline gap-2">
-              <span className="text-2xl font-bold text-gray-900 tabular-nums">{metric.value}</span>
+              <span className="text-2xl font-bold text-[var(--pm-text-primary)] tabular-nums">{metric.value}</span>
               <div className={`flex items-center gap-1 text-xs font-medium ${
-                metric.trend === 'up' ? 'text-[#10b981]' :
-                metric.trend === 'down' ? 'text-[#ef4444]' :
-                'text-gray-400'
+                metric.trend === 'up' ? 'text-[var(--pm-success)]' :
+                metric.trend === 'down' ? 'text-[var(--pm-error)]' :
+                'text-[var(--pm-text-tertiary)]'
               }`}>
                 {metric.trend === 'up' && <TrendingUp className="w-3.5 h-3.5" />}
                 {metric.trend === 'down' && <TrendingDown className="w-3.5 h-3.5" />}

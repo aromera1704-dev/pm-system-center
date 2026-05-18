@@ -27,6 +27,24 @@
   --pm-gradient-ai-soft: linear-gradient(135deg, #eff6ff 0%, #fce7f3 100%);
   --pm-gradient-hero: linear-gradient(135deg, rgba(37, 99, 235, 0.08) 0%, rgba(252, 16, 163, 0.05) 100%);
 
+  /* Official semantic aliases for PM-System tokenization */
+  --pm-action-primary: var(--pm-primary-blue);
+  --pm-action-primary-hover: var(--pm-hover-blue);
+  --pm-link: var(--pm-primary-blue);
+  --pm-link-hover: var(--pm-hover-blue);
+  --pm-text-inverse: #ffffff;
+  --pm-surface-overlay: rgba(255, 255, 255, 0.95);
+  --pm-surface-tooltip: var(--pm-text-primary);
+  --pm-surface-tooltip-foreground: var(--pm-text-inverse);
+  --pm-border-ai: rgba(252, 16, 163, 0.18);
+  --pm-ai-text: var(--pm-ai-magenta);
+  --pm-ai-surface: var(--pm-soft-ai-bg);
+  --pm-ai-surface-hover: rgba(252, 16, 163, 0.1);
+  --pm-status-success-bg: rgba(16, 185, 129, 0.1);
+  --pm-status-warning-bg: rgba(217, 119, 6, 0.12);
+  --pm-status-error-bg: rgba(239, 68, 68, 0.1);
+  --pm-status-info-bg: rgba(37, 99, 235, 0.1);
+
   --font-size: 16px;
   --background: var(--pm-bg-primary);
   --foreground: var(--pm-text-primary);
@@ -138,6 +156,22 @@
   --color-pm-error: var(--pm-error);
   --color-pm-info: var(--pm-info);
   --color-pm-warm-accent: var(--pm-warm-accent);
+  --color-pm-action-primary: var(--pm-action-primary);
+  --color-pm-action-primary-hover: var(--pm-action-primary-hover);
+  --color-pm-link: var(--pm-link);
+  --color-pm-link-hover: var(--pm-link-hover);
+  --color-pm-text-inverse: var(--pm-text-inverse);
+  --color-pm-surface-overlay: var(--pm-surface-overlay);
+  --color-pm-surface-tooltip: var(--pm-surface-tooltip);
+  --color-pm-surface-tooltip-foreground: var(--pm-surface-tooltip-foreground);
+  --color-pm-border-ai: var(--pm-border-ai);
+  --color-pm-ai-text: var(--pm-ai-text);
+  --color-pm-ai-surface: var(--pm-ai-surface);
+  --color-pm-ai-surface-hover: var(--pm-ai-surface-hover);
+  --color-pm-status-success-bg: var(--pm-status-success-bg);
+  --color-pm-status-warning-bg: var(--pm-status-warning-bg);
+  --color-pm-status-error-bg: var(--pm-status-error-bg);
+  --color-pm-status-info-bg: var(--pm-status-info-bg);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
