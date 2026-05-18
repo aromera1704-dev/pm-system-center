@@ -13,7 +13,7 @@ Las variantes `V1` a `V6` se conservan únicamente como histórico y referencia 
 
 ---
 
-## V1 — Cinematic Dark
+## V1 — Cinematic Dark (HISTÓRICO)
 **Archivo:** `src/app/App-v1-cinematic-dark.tsx`
 **Componentes:** `src/app/components/v1/`
 
@@ -33,7 +33,7 @@ Las variantes `V1` a `V6` se conservan únicamente como histórico y referencia 
 
 ---
 
-## V2 — Industrial Warm Dark
+## V2 — Industrial Warm Dark (HISTÓRICO)
 **Archivo:** `src/app/App-v2-industrial-warm-dark.tsx`
 **Componentes:** `src/app/components/`
 
@@ -118,7 +118,7 @@ Las variantes `V1` a `V6` se conservan únicamente como histórico y referencia 
 
 ---
 
-## V3 — Industrial Light (Original)
+## V3 — Industrial Light (Original) (HISTÓRICO)
 **Archivo:** `src/app/App-v3-industrial-light-original.tsx`
 **Componentes:** `src/app/components/v3/`
 

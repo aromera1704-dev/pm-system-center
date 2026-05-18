@@ -1,5 +1,16 @@
 # 📚 PM-System — Índice de Documentación
 
+## Estado actual
+
+La base visual activa del Centro de Operaciones `PM-System` es `V7`.
+
+Referencia vigente:
+
+- `src/app/App.tsx`
+- `src/app/components/v7/`
+
+Las referencias a `V1`-`V6` dentro de este índice deben leerse como histórico documental y evolución del proyecto, no como baseline activo.
+
 Guía completa de navegación para todos los archivos de documentación del proyecto.
 
 ---
@@ -8,12 +19,12 @@ Guía completa de navegación para todos los archivos de documentación del proy
 
 ### 1. **README.md** — Tu primer punto de entrada
 - Visión general del proyecto
-- 4 versiones disponibles (V1-V4)
+- estado visual activo y variantes históricas
 - Características principales
 - Paleta de colores
 - Stack tecnológico
-- Guía rápida de instalación
-- Cómo cambiar entre versiones
+- guía rápida de instalación
+- canon visual activo
 
 👉 **Comienza aquí si es tu primera vez**
 
@@ -21,8 +32,8 @@ Guía completa de navegación para todos los archivos de documentación del proy
 
 ## 🎨 Versiones y Comparativas
 
-### 2. **V4-SUMMARY.md** ⭐ RECOMENDADO
-- Resumen ejecutivo de V4 (versión activa)
+### 2. **V4-SUMMARY.md** ⭐ HISTÓRICO
+- Resumen ejecutivo de V4
 - Cambios clave vs V3
 - Comparativa rápida
 - Caso de uso real (PM industrial)
@@ -30,9 +41,9 @@ Guía completa de navegación para todos los archivos de documentación del proy
 - Criterios de éxito cumplidos
 - Métricas de mejora
 
-👉 **Lee esto para entender V4 en 5 minutos**
+👉 **Léelo como referencia histórica de la evolución**
 
-### 3. **V4-REFINEMENTS.md** — Detalles técnicos
+### 3. **V4-REFINEMENTS.md** — Detalles técnicos históricos
 - Problemas identificados en V3
 - Mejoras aplicadas en V4
 - Nuevos componentes (RecentActivity)
@@ -43,17 +54,16 @@ Guía completa de navegación para todos los archivos de documentación del proy
 
 👉 **Para diseñadores y desarrolladores que quieren el detalle completo**
 
-### 4. **VERSIONS.md** — Comparativa de las 4 versiones
+### 4. **VERSIONS.md** — Comparativa histórica de variantes
 - V1 — Cinematic Dark 🎬
 - V2 — Industrial Warm Dark 🌙
 - V3 — Industrial Light (original) ☀️
-- V4 — Industrial Light Refined (activa) ☀️🔧
+- V4 — Industrial Light Refined (histórica) ☀️🔧
 - Características de cada una
 - Ideal para qué uso
-- Cómo activar cada versión
 - Paleta de colores de cada una
 
-👉 **Para comparar todas las versiones y elegir la adecuada**
+👉 **Para entender la evolución visual, no para elegir baseline activo**
 
 ---
 
@@ -134,25 +144,25 @@ Guía completa de navegación para todos los archivos de documentación del proy
 /workspaces/default/code/
 │
 ├── 📄 README.md                    ← EMPEZAR AQUÍ
-├── 📄 V4-SUMMARY.md                ⭐ VERSIÓN ACTIVA
-├── 📄 V4-REFINEMENTS.md            🔧 DETALLES TÉCNICOS
-├── 📄 VERSIONS.md                  🔄 COMPARATIVA 4 VERSIONES
+├── 📄 V4-SUMMARY.md                ⭐ HISTÓRICO
+├── 📄 V4-REFINEMENTS.md            🔧 HISTÓRICO
+├── 📄 VERSIONS.md                  🔄 HISTÓRICO / EVOLUCIÓN
 ├── 📄 DESIGN-GUIDE.md              🎨 GUÍA COMPLETA DISEÑO
 ├── 📄 CHANGELOG.md                 📝 HISTORIAL CAMBIOS
 ├── 📄 ATTRIBUTIONS.md              👥 CRÉDITOS
 ├── 📄 DOCS-INDEX.md                📚 ESTE ARCHIVO
 │
 ├── src/app/
-│   ├── App.tsx                     ← V4 (activa)
+│   ├── App.tsx                     ← V7 (canon activo)
 │   ├── App-v1-cinematic-dark.tsx
 │   ├── App-v2-industrial-warm-dark.tsx
 │   ├── App-v3-industrial-light-original.tsx
 │   │
 │   └── components/
-│       ├── v1/                     → 7 componentes V1
-│       ├── v3/                     → 7 componentes V3
-│       ├── v4/                     → 7 componentes V4
-│       └── [raíz]/                 → 8 componentes V2
+│       ├── v1/                     → Histórico
+│       ├── v3/                     → Histórico
+│       ├── v4/                     → Histórico
+│       └── [raíz]/                 → Legado V2
 │
 └── src/styles/
     ├── fonts.css
@@ -190,19 +200,19 @@ Guía completa de navegación para todos los archivos de documentación del proy
 ## 🔗 Enlaces Rápidos
 
 ### Versiones
-- **V4 (activa):** `src/app/App.tsx`
+- **V7 (activa):** `src/app/App.tsx`
 - **V3 original:** `src/app/App-v3-industrial-light-original.tsx`
 - **V2 dark:** `src/app/App-v2-industrial-warm-dark.tsx`
 - **V1 cinematic:** `src/app/App-v1-cinematic-dark.tsx`
 
-### Componentes V4
-- `src/app/components/v4/sidebar.tsx`
-- `src/app/components/v4/status-bar.tsx`
-- `src/app/components/v4/live-metrics.tsx`
-- `src/app/components/v4/command-bar.tsx`
-- `src/app/components/v4/quick-actions.tsx`
-- `src/app/components/v4/orbital-core.tsx`
-- `src/app/components/v4/recent-activity.tsx` ⭐ NUEVO
+### Componentes activos
+- `src/app/components/v7/sidebar.tsx`
+- `src/app/components/v7/status-bar.tsx`
+- `src/app/components/v7/live-metrics.tsx`
+- `src/app/components/v7/command-bar.tsx`
+- `src/app/components/v7/quick-actions.tsx`
+- `src/app/components/v7/orbital-core.tsx`
+- `src/app/components/v7/recent-activity.tsx`
 
 ---
 
@@ -229,13 +239,13 @@ Guía completa de navegación para todos los archivos de documentación del proy
 ## ❓ Preguntas Frecuentes
 
 **Q: ¿Qué versión debo usar?**  
-A: V4 — Industrial Light Refined (ya está activa)
+A: V7 — Premium Blue + AI Magenta (canon activo)
 
 **Q: ¿Dónde está la documentación más completa?**  
 A: DESIGN-GUIDE.md
 
-**Q: ¿Cómo cambio a otra versión?**  
-A: Ver README.md sección "Cambiar entre Versiones"
+**Q: ¿Puedo usar V1-V6 como base?**  
+A: No. Se conservan como histórico. La base activa es V7.
 
 **Q: ¿Cuál es la diferencia entre V3 y V4?**  
 A: Lee V4-SUMMARY.md sección "Cambios Clave"
@@ -264,7 +274,7 @@ Tiempo lectura profunda:  2h
 ## 🔄 Última Actualización
 
 **Fecha:** 17 Mayo 2026  
-**Versión activa:** V4 — Industrial Light Refined  
+**Versión activa:** V7 — Premium Blue + AI Magenta  
 **Estado:** Documentación completa ✅
 
 ---

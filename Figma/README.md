@@ -31,7 +31,7 @@ V7 es la referencia visual vigente para `PM-System`. Cualquier trabajo nuevo sob
 - Las variantes históricas no deben usarse como baseline de nuevas decisiones visuales.
 - Cambiar `App.tsx` a una variante antigua no forma parte del flujo normal de trabajo.
 
-### ✨ V6 — Industrial Premium
+### ✨ V6 — Industrial Premium (HISTÓRICO)
 **Base:** Version 3 + mejoras controladas
 
 V6 usa V3 como fundamento visual y añade solo mejoras específicas.
@@ -46,7 +46,7 @@ V6 usa V3 como fundamento visual y añade solo mejoras específicas.
 
 ---
 
-### ✨ V5 — Industrial Light Premium
+### ✨ V5 — Industrial Light Premium (HISTÓRICO)
 Versión con más efectos visuales y gradientes.
 
 **Características:**
@@ -58,7 +58,7 @@ Versión con más efectos visuales y gradientes.
 
 ---
 
-### ☀️ V3 — Industrial Light (Original)
+### ☀️ V3 — Industrial Light (Original) (HISTÓRICO)
 Versión light inicial — más landing page.
 
 **Características:**
@@ -71,7 +71,7 @@ Versión light inicial — más landing page.
 
 ---
 
-### 🌙 V2 — Industrial Warm Dark
+### 🌙 V2 — Industrial Warm Dark (HISTÓRICO)
 Versión dark operativa optimizada para uso nocturno.
 
 **Características:**
@@ -85,7 +85,7 @@ Versión dark operativa optimizada para uso nocturno.
 
 ---
 
-### 🎬 V1 — Cinematic Dark
+### 🎬 V1 — Cinematic Dark (HISTÓRICO)
 Versión conceptual con estética cinematográfica extrema.
 
 **Características:**
@@ -309,37 +309,20 @@ Las siguientes versiones se mantienen para contexto histórico. No son alternati
 
 ---
 
-## 🔄 Cambiar entre Versiones
+## 🔄 Variantes Históricas Conservadas
 
-### Activar V7 — Premium Blue + AI Magenta (actual)
-Ya está activa por defecto.
+### Base activa actual
 
-### Activar V6 — Industrial Premium (Teal/Copper)
-```bash
-cp src/app/App-v6-industrial-premium.tsx src/app/App.tsx
-```
+- `src/app/App.tsx`
+- `src/app/components/v7/`
 
-### Activar V5 — Industrial Light Premium
-```bash
-cp src/app/App-v5-industrial-light-premium.tsx src/app/App.tsx
-```
+### Estado de V1-V6
 
-### Activar V3 — Industrial Light Original
-```bash
-cp src/app/App-v3-industrial-light-original.tsx src/app/App.tsx
-```
+- `V1` a `V6` se conservan solo como histórico y referencia evolutiva.
+- No deben reactivarse como baseline de trabajo.
+- No forman parte del flujo normal de implementación.
 
-### Activar V2 — Industrial Warm Dark
-```bash
-cp src/app/App-v2-industrial-warm-dark.tsx src/app/App.tsx
-```
-
-### Activar V1 — Cinematic Dark
-```bash
-cp src/app/App-v1-cinematic-dark.tsx src/app/App.tsx
-```
-
-Ver archivos `V7-PM-MAIL-IDENTITY.md`, `V6-CONTROLLED-REFINEMENT.md` y `VERSIONS.md` para comparativas detalladas.
+Ver `V7-PM-MAIL-IDENTITY.md` y `VERSIONS.md` para contexto y comparativa histórica.
 
 ---
 

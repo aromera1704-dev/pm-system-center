@@ -1,5 +1,17 @@
 # Changelog — PM-System Centro de Operaciones
 
+## Estado actual
+
+Este archivo conserva el historial de iteraciones anteriores.
+
+Base visual activa vigente:
+
+- `V7`
+- `src/app/App.tsx`
+- `src/app/components/v7/`
+
+Las entradas `V1`-`V4` deben leerse como histórico. No representan el canon activo actual.
+
 ## [V4] - 2026-05-17 — Industrial Light Refined ☀️🔧
 
 ### 🔧 Refinamientos profesionales sobre V3
@@ -139,11 +151,11 @@
 
 ---
 
-## Estructura de Archivos
+## Estructura de Archivos (Histórica)
 
 ```
 src/app/
-├── App.tsx                           → V3 (activa)
+├── App.tsx                           → V7 (canon activo actual)
 ├── App-v1-cinematic-dark.tsx         → V1 (backup)
 ├── App-v2-industrial-warm-dark.tsx   → V2 (backup)
 ├── App-v3-industrial-light.tsx       → V3 (backup)
@@ -155,7 +167,7 @@ src/app/
 
 ---
 
-## Notas de Migración
+## Notas de Migración Históricas
 
 ### V1 → V2
 No se requiere migración. Solo cambiar el archivo App.tsx.
@@ -163,17 +175,7 @@ No se requiere migración. Solo cambiar el archivo App.tsx.
 ### V2 → V3
 No se requiere migración. Solo cambiar el archivo App.tsx.
 
-### Activar cualquier versión
-```bash
-# V1
-cp src/app/App-v1-cinematic-dark.tsx src/app/App.tsx
-
-# V2
-cp src/app/App-v2-industrial-warm-dark.tsx src/app/App.tsx
-
-# V3 (actual)
-cp src/app/App-v3-industrial-light.tsx src/app/App.tsx
-```
+Las activaciones listadas en este archivo pertenecen al contexto histórico de esas iteraciones y no forman parte del flujo activo actual.
 
 ---
 
@@ -233,5 +235,5 @@ cp src/app/App-v3-industrial-light.tsx src/app/App.tsx
 
 ---
 
-**Versión actual:** V3 — Industrial Light  
-**Última actualización:** 16 Mayo 2026
+**Canon activo actual:** V7 — Premium Blue + AI Magenta  
+**Última actualización de este historial:** 16 Mayo 2026
