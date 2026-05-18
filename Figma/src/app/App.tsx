@@ -1,3 +1,6 @@
+// Canon visual activo de PM SYSTEM.
+// Este shell y los componentes importados desde ./components/v7/ son
+// la referencia vigente del Centro de Operaciones.
 import { motion } from 'motion/react';
 import { Sidebar } from './components/v7/sidebar';
 import { StatusBar } from './components/v7/status-bar';
