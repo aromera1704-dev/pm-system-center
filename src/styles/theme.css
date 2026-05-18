@@ -1,0 +1,310 @@
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* PM-System design foundation — Premium Blue + AI Magenta */
+  --pm-primary-blue: #2563eb;
+  --pm-hover-blue: #1d4ed8;
+  --pm-soft-blue-bg: #eff6ff;
+  --pm-ai-magenta: #fc10a3;
+  --pm-hover-pink: #e6008d;
+  --pm-soft-ai-bg: #fce7f3;
+  --pm-bg-primary: #f9fafb;
+  --pm-surface-primary: #ffffff;
+  --pm-surface-secondary: #f3f4f6;
+  --pm-border-default: #e5e7eb;
+  --pm-border-strong: #d1d5db;
+  --pm-text-primary: #111827;
+  --pm-text-secondary: #6b7280;
+  --pm-text-tertiary: #9ca3af;
+  --pm-success: #10b981;
+  --pm-warning: #d97706;
+  --pm-error: #ef4444;
+  --pm-info: #2563eb;
+  --pm-warm-accent: #d4a574;
+  --pm-focus-ring: #2563eb;
+  --pm-gradient-system: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  --pm-gradient-ai: linear-gradient(135deg, #2563eb 0%, #fc10a3 100%);
+  --pm-gradient-ai-soft: linear-gradient(135deg, #eff6ff 0%, #fce7f3 100%);
+  --pm-gradient-hero: linear-gradient(135deg, rgba(37, 99, 235, 0.08) 0%, rgba(252, 16, 163, 0.05) 100%);
+
+  /* Official semantic aliases for PM-System tokenization */
+  --pm-action-primary: var(--pm-primary-blue);
+  --pm-action-primary-hover: var(--pm-hover-blue);
+  --pm-link: var(--pm-primary-blue);
+  --pm-link-hover: var(--pm-hover-blue);
+  --pm-text-inverse: #ffffff;
+  --pm-surface-overlay: rgba(255, 255, 255, 0.95);
+  --pm-surface-tooltip: var(--pm-text-primary);
+  --pm-surface-tooltip-foreground: var(--pm-text-inverse);
+  --pm-border-ai: rgba(252, 16, 163, 0.18);
+  --pm-ai-text: var(--pm-ai-magenta);
+  --pm-ai-surface: var(--pm-soft-ai-bg);
+  --pm-ai-surface-hover: rgba(252, 16, 163, 0.1);
+  --pm-status-success-bg: rgba(16, 185, 129, 0.1);
+  --pm-status-warning-bg: rgba(217, 119, 6, 0.12);
+  --pm-status-error-bg: rgba(239, 68, 68, 0.1);
+  --pm-status-info-bg: rgba(37, 99, 235, 0.1);
+
+  --font-size: 16px;
+  --background: var(--pm-bg-primary);
+  --foreground: var(--pm-text-primary);
+  --card: var(--pm-surface-primary);
+  --card-foreground: var(--pm-text-primary);
+  --popover: var(--pm-surface-primary);
+  --popover-foreground: var(--pm-text-primary);
+  --primary: var(--pm-primary-blue);
+  --primary-foreground: #ffffff;
+  --secondary: var(--pm-surface-secondary);
+  --secondary-foreground: var(--pm-text-primary);
+  --muted: var(--pm-surface-secondary);
+  --muted-foreground: var(--pm-text-secondary);
+  --accent: var(--pm-soft-blue-bg);
+  --accent-foreground: var(--pm-hover-blue);
+  --destructive: var(--pm-error);
+  --destructive-foreground: #ffffff;
+  --border: var(--pm-border-default);
+  --input: transparent;
+  --input-background: var(--pm-surface-primary);
+  --switch-background: #cbced4;
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --ring: var(--pm-focus-ring);
+  --chart-1: var(--pm-primary-blue);
+  --chart-2: var(--pm-ai-magenta);
+  --chart-3: var(--pm-success);
+  --chart-4: var(--pm-warm-accent);
+  --chart-5: var(--pm-text-tertiary);
+  --radius: 0.625rem;
+  --sidebar: var(--pm-surface-primary);
+  --sidebar-foreground: var(--pm-text-primary);
+  --sidebar-primary: var(--pm-primary-blue);
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: var(--pm-soft-blue-bg);
+  --sidebar-accent-foreground: var(--pm-hover-blue);
+  --sidebar-border: var(--pm-border-default);
+  --sidebar-ring: var(--pm-focus-ring);
+}
+
+.dark {
+  /* Legacy compatibility only. Dark mode remains available as historical support,
+     but it is not the active PM-System baseline. */
+  --background: #0f1419;
+  --foreground: #e5e7eb;
+  --card: #0d1419;
+  --card-foreground: #e5e7eb;
+  --popover: #0d1419;
+  --popover-foreground: #e5e7eb;
+  --primary: #e5e7eb;
+  --primary-foreground: #0f1419;
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: #9ca3af;
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.637 0.237 25.331);
+  --border: oklch(0.269 0 0);
+  --input: oklch(0.269 0 0);
+  --ring: oklch(0.439 0 0);
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: #0d1419;
+  --sidebar-foreground: #e5e7eb;
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(0.269 0 0);
+  --sidebar-ring: oklch(0.439 0 0);
+
+  /* PM-System V2 — Industrial Warm Dark Palette */
+  --graphite: #0d1419;
+  --petrol: #1a3e4a;
+  --copper: #b87333;
+  --amber: #d4a574;
+  --smoke: #6b7280;
+  --warm-white: #e5e7eb;
+  --text-secondary: #9ca3af;
+  --glow-petrol: rgba(26, 62, 74, 0.2);
+  --glow-copper: rgba(184, 115, 51, 0.15);
+  --glow-amber: rgba(212, 165, 116, 0.1);
+}
+
+@theme inline {
+  --color-pm-primary-blue: var(--pm-primary-blue);
+  --color-pm-hover-blue: var(--pm-hover-blue);
+  --color-pm-soft-blue-bg: var(--pm-soft-blue-bg);
+  --color-pm-ai-magenta: var(--pm-ai-magenta);
+  --color-pm-hover-pink: var(--pm-hover-pink);
+  --color-pm-soft-ai-bg: var(--pm-soft-ai-bg);
+  --color-pm-bg-primary: var(--pm-bg-primary);
+  --color-pm-surface-primary: var(--pm-surface-primary);
+  --color-pm-surface-secondary: var(--pm-surface-secondary);
+  --color-pm-border-default: var(--pm-border-default);
+  --color-pm-border-strong: var(--pm-border-strong);
+  --color-pm-text-primary: var(--pm-text-primary);
+  --color-pm-text-secondary: var(--pm-text-secondary);
+  --color-pm-text-tertiary: var(--pm-text-tertiary);
+  --color-pm-success: var(--pm-success);
+  --color-pm-warning: var(--pm-warning);
+  --color-pm-error: var(--pm-error);
+  --color-pm-info: var(--pm-info);
+  --color-pm-warm-accent: var(--pm-warm-accent);
+  --color-pm-action-primary: var(--pm-action-primary);
+  --color-pm-action-primary-hover: var(--pm-action-primary-hover);
+  --color-pm-link: var(--pm-link);
+  --color-pm-link-hover: var(--pm-link-hover);
+  --color-pm-text-inverse: var(--pm-text-inverse);
+  --color-pm-surface-overlay: var(--pm-surface-overlay);
+  --color-pm-surface-tooltip: var(--pm-surface-tooltip);
+  --color-pm-surface-tooltip-foreground: var(--pm-surface-tooltip-foreground);
+  --color-pm-border-ai: var(--pm-border-ai);
+  --color-pm-ai-text: var(--pm-ai-text);
+  --color-pm-ai-surface: var(--pm-ai-surface);
+  --color-pm-ai-surface-hover: var(--pm-ai-surface-hover);
+  --color-pm-status-success-bg: var(--pm-status-success-bg);
+  --color-pm-status-warning-bg: var(--pm-status-warning-bg);
+  --color-pm-status-error-bg: var(--pm-status-error-bg);
+  --color-pm-status-info-bg: var(--pm-status-info-bg);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-switch-background: var(--switch-background);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  /**
+  * Default typography styles for HTML elements (h1-h4, p, label, button, input).
+  * These are in @layer base, so Tailwind utility classes (like text-sm, text-lg) automatically override them.
+  */
+
+  html {
+    font-size: var(--font-size);
+  }
+
+  h1 {
+    font-size: var(--text-2xl);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  h2 {
+    font-size: var(--text-xl);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  h3 {
+    font-size: var(--text-lg);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  h4 {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  label {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  button {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  input {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-normal);
+    line-height: 1.5;
+  }
+}
+
+@layer utilities {
+  .glass-effect {
+    background: rgba(15, 15, 20, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .glow-petrol {
+    box-shadow: 0 0 40px rgba(26, 62, 74, 0.3);
+  }
+
+  .glow-copper {
+    box-shadow: 0 0 40px rgba(184, 115, 51, 0.2);
+  }
+
+  .glow-amber {
+    box-shadow: 0 0 30px rgba(212, 165, 116, 0.15);
+  }
+
+  .pm-gradient-system {
+    background-image: var(--pm-gradient-system);
+  }
+
+  .pm-gradient-ai {
+    background-image: var(--pm-gradient-ai);
+  }
+
+  .pm-gradient-ai-soft {
+    background-image: var(--pm-gradient-ai-soft);
+  }
+
+  .pm-gradient-hero {
+    background-image: var(--pm-gradient-hero);
+  }
+}
