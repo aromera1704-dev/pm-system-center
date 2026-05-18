@@ -1,5 +1,13 @@
 # V5 — Industrial Light Premium
 
+> Estado documental: `HISTÓRICO`
+>
+> Esta guía quedó archivada como referencia de `V5`.
+>
+> No describe la base activa de `PM SYSTEM`.
+>
+> Canon actual: `V7` en `src/app/App.tsx` + `src/app/components/v7/`.
+
 ## ⚡ Quick Guide (2 minutes)
 
 ### What Changed from V4?
@@ -164,7 +172,7 @@ shadow-2xl: Premium containers
 
 ## 🚀 When to Use Each Version
 
-### V5 — Premium (Current) ⭐
+### V5 — Premium (Histórico)
 **Use when:** You want premium visual quality + full functionality  
 **Feeling:** High-end industrial SaaS
 
@@ -188,7 +196,7 @@ shadow-2xl: Premium containers
 
 ## 📁 File Locations
 
-**Active:** `src/app/App.tsx` (V5)
+**Historical snapshot:** `src/app/App-v5-industrial-light-premium.tsx`
 
 **Backups:**
 - V4: `src/app/App-v4-industrial-light-refined.tsx`
@@ -219,10 +227,10 @@ V5 = V4 > V2 > V3 > V1
 ### Premium Feel
 V5 > V3 > V1 > V2 > V4
 
-**Recommendation:** Use V5 for production. It has everything.
+**Recommendation:** Do not use `V5` as current production baseline. Keep it only as historical reference.
 
 ---
 
 **Version:** V5 — Industrial Light Premium  
-**Status:** Active ✅  
+**Status:** Histórico  
 **Character:** Premium + Operational + Industrial

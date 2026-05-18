@@ -48,8 +48,8 @@ Características:
 ✅ Abre el preview para ver Premium Blue + AI Magenta identity
 
 ### Para Entender el Diseño
-📖 Lee: `V7-PM-MAIL-IDENTITY.md` ⭐ (paleta unificada)  
-📖 Lee: `README.md` (5 min)
+📖 Lee: `README.md` (5 min)  
+📖 Lee: `VERSIONS.md` (solo si necesitas contexto histórico)
 
 ### Para Entender el Estado Visual
 Hay varias versiones históricas en el repositorio, pero solo una base activa:
@@ -65,12 +65,12 @@ Regla de trabajo:
 
 ### Para Explorar la Documentación
 📚 **DOCS-INDEX.md** — Índice completo de documentación  
-📄 **V7-PM-MAIL-IDENTITY.md** ⭐ — Paleta V7 (PM Mail unified)  
-📄 **V6-CONTROLLED-REFINEMENT.md** — Approach V6 (V3 base)  
-📄 **V5-QUICK-GUIDE.md** — Guía V5 (efectos premium)  
-📄 **V4-SUMMARY.md** — Resumen V4  
+📄 **V7-PM-MAIL-IDENTITY.md** ⭐ — Documento residual asociado a identidad V7/PM Mail  
+📄 **V6-CONTROLLED-REFINEMENT.md** — Histórico V6  
+📄 **V5-QUICK-GUIDE.md** — Histórico V5  
+📄 **V4-SUMMARY.md** — Histórico V4  
 📄 **VERSIONS.md** — Comparativa versiones  
-📄 **DESIGN-GUIDE.md** — Sistema de diseño completo  
+📄 **DESIGN-GUIDE.md** — Guía histórica de diseño  
 📄 **CHANGELOG.md** — Historial de cambios  
 
 ---
@@ -166,14 +166,14 @@ ACCENT:
 
 ### 📖 Lectura Completa (15 min)
 1. `START-HERE.md`
-2. `V7-PM-MAIL-IDENTITY.md` (2 min) ⭐
-3. `README.md`
+2. `README.md`
+3. `VERSIONS.md`
 
 ### 🔍 Lectura Profunda (45 min)
 1. `START-HERE.md`
-2. `V7-PM-MAIL-IDENTITY.md`
-3. `V6-CONTROLLED-REFINEMENT.md`
-4. `DESIGN-GUIDE.md`
+2. `README.md`
+3. `VERSIONS.md`
+4. `PM_SYSTEM_UI_LEGACY_INVENTORY.md`
 
 ---
 
@@ -205,7 +205,7 @@ ACCENT:
 A: Sí, V7 está activa. Solo abre el preview.
 
 **Q: ¿Por qué V7 en vez de V6?**  
-A: V7 unifica la identidad visual con PM Mail (Premium Blue + AI Magenta). Misma estructura, nueva paleta.
+A: Porque `V6` ya es histórico. `V7` es el único canon activo permitido para implementación nueva.
 
 **Q: ¿Puedo usar V1-V6 como base de implementación?**  
 A: No. Se conservan como histórico. La base activa es `V7`.

@@ -1,5 +1,13 @@
 # V4 — Industrial Light Refined
 
+> Estado documental: `HISTÓRICO`
+>
+> Este archivo describe refinamientos de `V4`.
+>
+> No debe usarse como guía activa de implementación.
+>
+> Canon actual: `V7` en `src/app/App.tsx` + `src/app/components/v7/`.
+
 ## Refinamientos aplicados sobre V3
 
 ### ❌ Problemas identificados en V3

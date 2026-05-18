@@ -41,7 +41,7 @@ Guía completa de navegación para todos los archivos de documentación del proy
 - Criterios de éxito cumplidos
 - Métricas de mejora
 
-👉 **Léelo como referencia histórica de la evolución**
+👉 **Léelo solo como referencia histórica de la evolución**
 
 ### 3. **V4-REFINEMENTS.md** — Detalles técnicos históricos
 - Problemas identificados en V3
@@ -69,7 +69,7 @@ Guía completa de navegación para todos los archivos de documentación del proy
 
 ## 🎯 Diseño y Filosofía
 
-### 5. **DESIGN-GUIDE.md** — Guía completa de diseño
+### 5. **DESIGN-GUIDE.md** — Guía histórica de diseño
 - Filosofía de diseño
 - Principios (jerarquía, minimalismo, profundidad)
 - Paletas de color V1/V2/V3
@@ -83,7 +83,7 @@ Guía completa de navegación para todos los archivos de documentación del proy
 - Mejores prácticas
 - Referencias de diseño
 
-👉 **Para diseñadores que quieren entender el sistema completo**
+👉 **Para entender el legado de diseño previo a V7**
 
 ---
 
@@ -116,24 +116,24 @@ Guía completa de navegación para todos los archivos de documentación del proy
 
 #### 👨‍💼 **Project Manager / Usuario Final**
 1. `README.md` — Visión general
-2. `V4-SUMMARY.md` — Entender V4 en 5 min
+2. `VERSIONS.md` — Entender la evolución sin confundirla con el canon
 3. Empezar a usar la app
 
 #### 🎨 **Diseñador**
-1. `V4-SUMMARY.md` — Ver resultado final
-2. `DESIGN-GUIDE.md` — Filosofía y sistema completo
-3. `V4-REFINEMENTS.md` — Decisiones de diseño
-4. `VERSIONS.md` — Comparar variantes
+1. `README.md` — Estado visual activo
+2. `PM_SYSTEM_UI_LEGACY_INVENTORY.md` — Qué es histórico y qué no
+3. `VERSIONS.md` — Comparar variantes históricas
+4. `DESIGN-GUIDE.md` — Solo legado previo a V7
 
 #### 👨‍💻 **Desarrollador**
 1. `README.md` — Stack y estructura
-2. `V4-REFINEMENTS.md` — Cambios técnicos
-3. `DESIGN-GUIDE.md` — Componentes y specs
+2. `PM_SYSTEM_UI_LEGACY_INVENTORY.md` — Límites del legacy
+3. `DESIGN-GUIDE.md` — Solo si necesitas contexto histórico
 4. `CHANGELOG.md` — Historial de cambios
 
 #### 📊 **Stakeholder / Product Owner**
-1. `V4-SUMMARY.md` — Resumen ejecutivo
-2. `README.md` — Visión general
+1. `README.md` — Visión general
+2. `VERSIONS.md` — Evolución histórica resumida
 3. `CHANGELOG.md` — Evolución y roadmap
 
 ---
@@ -147,7 +147,7 @@ Guía completa de navegación para todos los archivos de documentación del proy
 ├── 📄 V4-SUMMARY.md                ⭐ HISTÓRICO
 ├── 📄 V4-REFINEMENTS.md            🔧 HISTÓRICO
 ├── 📄 VERSIONS.md                  🔄 HISTÓRICO / EVOLUCIÓN
-├── 📄 DESIGN-GUIDE.md              🎨 GUÍA COMPLETA DISEÑO
+├── 📄 DESIGN-GUIDE.md              🎨 GUÍA HISTÓRICA DE DISEÑO
 ├── 📄 CHANGELOG.md                 📝 HISTORIAL CAMBIOS
 ├── 📄 ATTRIBUTIONS.md              👥 CRÉDITOS
 ├── 📄 DOCS-INDEX.md                📚 ESTE ARCHIVO
@@ -176,21 +176,20 @@ Guía completa de navegación para todos los archivos de documentación del proy
 
 ### 📖 Lectura Rápida (15 min)
 1. `README.md` — 5 min
-2. `V4-SUMMARY.md` — 5 min
-3. `VERSIONS.md` — 5 min (solo comparativa)
+2. `VERSIONS.md` — 5 min (solo comparativa)
+3. `PM_SYSTEM_UI_LEGACY_INVENTORY.md` — 5 min
 
 ### 📚 Lectura Completa (45 min)
 1. `README.md` — 5 min
-2. `V4-SUMMARY.md` — 10 min
-3. `V4-REFINEMENTS.md` — 15 min
-4. `DESIGN-GUIDE.md` — 15 min
+2. `VERSIONS.md` — 10 min
+3. `PM_SYSTEM_UI_LEGACY_INVENTORY.md` — 15 min
+4. `DESIGN-GUIDE.md` — 15 min de contexto histórico
 
 ### 🔍 Lectura Profunda (2h)
 1. Todos los archivos en orden:
    - README
-   - V4-SUMMARY
-   - V4-REFINEMENTS
    - VERSIONS
+   - PM_SYSTEM_UI_LEGACY_INVENTORY
    - DESIGN-GUIDE
    - CHANGELOG
    - Explorar código fuente
@@ -223,13 +222,13 @@ Guía completa de navegación para todos los archivos de documentación del proy
 | Busco... | Archivo |
 |----------|---------|
 | Visión general del proyecto | README.md |
-| Por qué V4 es mejor que V3 | V4-SUMMARY.md |
-| Detalles técnicos de V4 | V4-REFINEMENTS.md |
-| Comparar las 4 versiones | VERSIONS.md |
-| Sistema de diseño completo | DESIGN-GUIDE.md |
+| Por qué V4 fue mejor que V3 | V4-SUMMARY.md |
+| Detalles técnicos históricos de V4 | V4-REFINEMENTS.md |
+| Comparar variantes históricas | VERSIONS.md |
+| Legado del sistema de diseño | DESIGN-GUIDE.md |
 | Historial de cambios | CHANGELOG.md |
-| Cómo cambiar de versión | README.md o VERSIONS.md |
-| Paleta de colores | V4-SUMMARY.md o DESIGN-GUIDE.md |
+| Qué es histórico y qué sigue activo | PM_SYSTEM_UI_LEGACY_INVENTORY.md |
+| Paleta de colores histórica | V4-SUMMARY.md o DESIGN-GUIDE.md |
 | Componentes disponibles | DESIGN-GUIDE.md |
 | Casos de uso | V4-SUMMARY.md o V4-REFINEMENTS.md |
 | Roadmap futuro | CHANGELOG.md |
@@ -241,8 +240,8 @@ Guía completa de navegación para todos los archivos de documentación del proy
 **Q: ¿Qué versión debo usar?**  
 A: V7 — Premium Blue + AI Magenta (canon activo)
 
-**Q: ¿Dónde está la documentación más completa?**  
-A: DESIGN-GUIDE.md
+**Q: ¿Dónde está la documentación activa más importante?**  
+A: README.md + PM_SYSTEM_UI_LEGACY_INVENTORY.md
 
 **Q: ¿Puedo usar V1-V6 como base?**  
 A: No. Se conservan como histórico. La base activa es V7.
@@ -254,7 +253,7 @@ A: Lee V4-SUMMARY.md sección "Cambios Clave"
 A: CHANGELOG.md al final
 
 **Q: ¿Qué archivos debo leer primero?**  
-A: README.md → V4-SUMMARY.md
+A: README.md → PM_SYSTEM_UI_LEGACY_INVENTORY.md
 
 ---
 
