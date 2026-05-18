@@ -1,15 +1,19 @@
 import { motion } from 'motion/react';
 import { Layers, Shield, Workflow, GitBranch, FileText, Bot, BarChart3, Zap } from 'lucide-react';
+import {
+  getNavigationModule,
+  navigationModuleIds,
+} from '../../navigation';
 
 const modules = [
-  { name: 'Project_Hub', icon: Layers, angle: 0, color: 'var(--pm-primary-blue)', bg: 'var(--pm-primary-blue)', status: 'active' },
-  { name: 'Control_PEM', icon: Shield, angle: 45, color: 'var(--pm-primary-blue)', bg: 'var(--pm-primary-blue)', status: 'active' },
-  { name: 'Automatizaciones', icon: Workflow, angle: 90, color: 'var(--pm-ai-magenta)', bg: 'var(--pm-ai-magenta)', status: 'active' },
+  { moduleId: navigationModuleIds.projectHub, icon: Layers, angle: 0, color: 'var(--pm-primary-blue)', bg: 'var(--pm-primary-blue)', status: 'active' },
+  { moduleId: navigationModuleIds.controlPem, icon: Shield, angle: 45, color: 'var(--pm-primary-blue)', bg: 'var(--pm-primary-blue)', status: 'active' },
+  { moduleId: navigationModuleIds.automation, icon: Workflow, angle: 90, color: 'var(--pm-ai-magenta)', bg: 'var(--pm-ai-magenta)', status: 'active' },
   { name: 'n8n', icon: Zap, angle: 135, color: 'var(--pm-ai-magenta)', bg: 'var(--pm-ai-magenta)', status: 'active' },
-  { name: 'Docs', icon: FileText, angle: 180, color: 'var(--pm-text-secondary)', bg: 'var(--pm-surface-secondary)', status: 'idle' },
+  { moduleId: navigationModuleIds.docs, icon: FileText, angle: 180, color: 'var(--pm-text-secondary)', bg: 'var(--pm-surface-secondary)', status: 'idle' },
   { name: 'GitHub', icon: GitBranch, angle: 225, color: 'var(--pm-primary-blue)', bg: 'var(--pm-primary-blue)', status: 'active' },
   { name: 'IA Agents', icon: Bot, angle: 270, color: 'var(--pm-ai-magenta)', bg: 'var(--pm-ai-magenta)', status: 'active' },
-  { name: 'KPIs', icon: BarChart3, angle: 315, color: 'var(--pm-primary-blue)', bg: 'var(--pm-primary-blue)', status: 'active' },
+  { moduleId: navigationModuleIds.kpis, icon: BarChart3, angle: 315, color: 'var(--pm-primary-blue)', bg: 'var(--pm-primary-blue)', status: 'active' },
 ];
 
 export function OrbitalCore() {
@@ -53,6 +57,10 @@ export function OrbitalCore() {
 
       {/* Orbital Modules */}
       {modules.map((module, index) => {
+        const navigationModule = module.moduleId
+          ? getNavigationModule(module.moduleId)
+          : undefined;
+        const moduleLabel = navigationModule?.label ?? module.name ?? 'Módulo';
         const x = Math.cos((module.angle * Math.PI) / 180) * radius;
         const y = Math.sin((module.angle * Math.PI) / 180) * radius;
         const labelPosition =
@@ -66,11 +74,13 @@ export function OrbitalCore() {
 
         return (
           <motion.div
-            key={module.name}
+            key={module.moduleId ?? moduleLabel}
             initial={{ opacity: 0, scale: 0 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.7 + index * 0.1, duration: 0.5 }}
             className="absolute"
+            title={navigationModule?.description ?? moduleLabel}
+            data-module-id={module.moduleId}
             style={{
               left: `calc(50% + ${x}px)`,
               top: `calc(50% + ${y}px)`,
@@ -130,7 +140,7 @@ export function OrbitalCore() {
                   textShadow: '0 1px 2px rgba(255, 255, 255, 0.9)',
                 }}
               >
-                <span className="font-medium">{module.name}</span>
+                <span className="font-medium">{moduleLabel}</span>
               </div>
             </motion.div>
           </motion.div>
