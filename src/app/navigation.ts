@@ -10,6 +10,16 @@ export type NavigationModule = {
   type: NavigationModuleType;
 };
 
+export const navigationModuleIds = {
+  projectHub: "project-hub",
+  pmMail: "pm-mail",
+  controlPem: "control-pem",
+  docs: "docs",
+  automation: "automation",
+  kpis: "kpis",
+  system: "system",
+} as const;
+
 export const navigationModules: NavigationModule[] = [
   {
     id: "project-hub",
@@ -76,3 +86,7 @@ export const primaryNavigationModules = navigationModules.filter(
 export const systemNavigationModule = navigationModules.find(
   (module) => module.id === "system",
 )!;
+
+export function getNavigationModule(id: string) {
+  return navigationModules.find((module) => module.id === id);
+}
