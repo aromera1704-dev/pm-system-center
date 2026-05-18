@@ -1,5 +1,13 @@
 # V4 — Industrial Light Refined
 
+> Estado documental: `HISTÓRICO`
+>
+> `V4` se conserva solo como referencia evolutiva.
+>
+> No representa la versión activa de `PM SYSTEM`.
+>
+> Canon actual: `V7` en `src/app/App.tsx` + `src/app/components/v7/`.
+
 ## ✨ Resumen Ejecutivo
 
 **V4 es la evolución madura y profesional del Centro de Operaciones PM-System.**
@@ -214,17 +222,17 @@ Funcionalidad:   +3 vistas operativas críticas
 
 ## 🚀 Activación
 
-### V4 ya está activa por defecto
+### V4 estuvo activa en su momento
 
 Para volver a otras versiones:
 ```bash
-# V3 Original (landing style)
+# V3 Original (landing style) — histórico
 cp src/app/App-v3-industrial-light-original.tsx src/app/App.tsx
 
-# V2 Dark Mode
+# V2 Dark Mode — histórico
 cp src/app/App-v2-industrial-warm-dark.tsx src/app/App.tsx
 
-# V1 Cinematic
+# V1 Cinematic — histórico
 cp src/app/App-v1-cinematic-dark.tsx src/app/App.tsx
 ```
 
@@ -242,7 +250,7 @@ cp src/app/App-v1-cinematic-dark.tsx src/app/App.tsx
 
 ## 🎯 Conclusión
 
-**V4 — Industrial Light Refined** es la versión **recomendada para uso profesional diario**.
+**V4 — Industrial Light Refined** fue una iteración relevante, pero ya no es la base recomendada.
 
 Combina:
 - ✅ Estética premium y moderna

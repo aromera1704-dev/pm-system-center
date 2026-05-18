@@ -1,5 +1,13 @@
 # V6 — Industrial Premium (V3 Base + Operational)
 
+> Estado documental: `HISTÓRICO`
+>
+> `V6` fue la iteración inmediatamente anterior al canon actual.
+>
+> No debe tratarse como alternativa vigente frente a `V7`.
+>
+> Canon actual: `V7` en `src/app/App.tsx` + `src/app/components/v7/`.
+
 ## 🎯 Approach: Controlled Improvement, Not Redesign
 
 **V6 uses V3 as the foundation** and applies only controlled, restrained improvements.

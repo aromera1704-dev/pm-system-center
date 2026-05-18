@@ -1,5 +1,13 @@
 # PM-System — Guía de Diseño
 
+> Estado documental: `HISTÓRICO`
+>
+> Esta guía documenta reglas y comparativas de `V1`-`V3`.
+>
+> No debe leerse como guía activa de implementación.
+>
+> Canon actual: `V7` en `src/app/App.tsx` + `src/app/components/v7/`.
+
 ## Filosofía de Diseño
 
 El Centro de Operaciones PM-System es una herramienta profesional para gestión de proyectos industriales. El diseño debe transmitir:

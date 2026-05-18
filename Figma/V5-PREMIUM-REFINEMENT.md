@@ -1,5 +1,13 @@
 # V5 — Industrial Light Premium
 
+> Estado documental: `HISTÓRICO`
+>
+> `V5` se conserva solo como referencia evolutiva.
+>
+> No debe usarse como baseline visual actual.
+>
+> Canon actual: `V7` en `src/app/App.tsx` + `src/app/components/v7/`.
+
 ## 🎯 Mission: Recover Premium Visual Identity
 
 **V5 combines the best of both worlds:**
