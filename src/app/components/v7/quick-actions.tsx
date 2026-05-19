@@ -2,6 +2,7 @@ import { motion } from 'motion/react';
 import { FolderOpen, Building2, FileCheck, Workflow, FileText, Shield } from 'lucide-react';
 import {
   getNavigationModule,
+  type NavigationModuleId,
   navigationModuleIds,
 } from '../../navigation';
 
@@ -46,7 +47,11 @@ const actions = [
   },
 ];
 
-export function QuickActions() {
+type QuickActionsProps = {
+  onModuleSelect?: (moduleId: NavigationModuleId) => void;
+};
+
+export function QuickActions({ onModuleSelect }: QuickActionsProps) {
   return (
     <div className="grid grid-cols-3 gap-3">
       {actions.map((action, index) => (
@@ -59,6 +64,7 @@ export function QuickActions() {
           return (
         <motion.button
           key={`${actionLabel}-${index}`}
+          type="button"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5 + index * 0.05 }}
@@ -66,6 +72,11 @@ export function QuickActions() {
           className="group relative p-5 rounded-xl bg-[var(--pm-surface-primary)] border border-[var(--pm-border-default)] hover:border-[var(--pm-border-strong)] hover:shadow-lg transition-all duration-300 text-left shadow-md"
           title={module?.description ?? actionLabel}
           data-module-id={action.moduleId}
+          onClick={() => {
+            if (action.moduleId && onModuleSelect) {
+              onModuleSelect(action.moduleId);
+            }
+          }}
         >
           <div className="relative flex items-center gap-4">
             <div

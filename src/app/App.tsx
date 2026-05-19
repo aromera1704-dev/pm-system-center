@@ -185,7 +185,7 @@ export default function App() {
                 >
                   Acciones Rápidas
                 </motion.h2>
-                <QuickActions />
+                <QuickActions onModuleSelect={setActiveSection} />
               </div>
 
               {/* Recent Activity - New section */}
@@ -322,7 +322,7 @@ export default function App() {
                 </motion.div>
 
                 {/* Orbital Core */}
-                <OrbitalCore />
+                <OrbitalCore onModuleSelect={setActiveSection} />
               </>
             ) : (
               <motion.div

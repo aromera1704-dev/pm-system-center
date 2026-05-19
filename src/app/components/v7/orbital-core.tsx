@@ -2,6 +2,7 @@ import { motion } from 'motion/react';
 import { Layers, Shield, Workflow, GitBranch, FileText, Bot, BarChart3, Zap } from 'lucide-react';
 import {
   getNavigationModule,
+  type NavigationModuleId,
   navigationModuleIds,
 } from '../../navigation';
 
@@ -16,7 +17,11 @@ const modules = [
   { moduleId: navigationModuleIds.kpis, icon: BarChart3, angle: 315, color: 'var(--pm-primary-blue)', bg: 'var(--pm-primary-blue)', status: 'active' },
 ];
 
-export function OrbitalCore() {
+type OrbitalCoreProps = {
+  onModuleSelect?: (moduleId: NavigationModuleId) => void;
+};
+
+export function OrbitalCore({ onModuleSelect }: OrbitalCoreProps) {
   const radius = 180;
 
   return (
@@ -113,7 +118,12 @@ export function OrbitalCore() {
             {/* Module node */}
             <motion.div
               whileHover={{ scale: 1.06 }}
-              className="relative group cursor-pointer"
+              className={`relative group ${module.moduleId ? 'cursor-pointer' : 'cursor-default'}`}
+              onClick={() => {
+                if (module.moduleId && onModuleSelect) {
+                  onModuleSelect(module.moduleId);
+                }
+              }}
             >
               {/* Node */}
               <div
