@@ -1,5 +1,5 @@
-export type NavigationModuleStatus = "available" | "planned" | "external";
-export type NavigationModuleType = "internal" | "external" | "planned";
+export type NavigationModuleStatus = "available" | "planned";
+export type NavigationModuleType = "internal" | "external";
 
 export type NavigationModule = {
   id: string;
