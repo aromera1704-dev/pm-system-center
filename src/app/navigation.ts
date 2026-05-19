@@ -20,6 +20,9 @@ export const navigationModuleIds = {
   system: "system",
 } as const;
 
+export type NavigationModuleId =
+  (typeof navigationModuleIds)[keyof typeof navigationModuleIds];
+
 export const navigationModules: NavigationModule[] = [
   {
     id: "project-hub",
