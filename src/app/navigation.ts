@@ -23,12 +23,15 @@ export const navigationModuleIds = {
 export type NavigationModuleId =
   (typeof navigationModuleIds)[keyof typeof navigationModuleIds];
 
+// Sustituir por la URL final publicada del módulo cuando exista.
+export const CONTROL_PEM_URL = "https://control-pem.arlprojects.com";
+
 export const navigationModules: NavigationModule[] = [
   {
     id: "project-hub",
     label: "Project Hub",
     description: "Gestión operativa de proyectos industriales.",
-    status: "external",
+    status: "planned",
     href: "#project-hub",
     type: "external",
   },
@@ -36,16 +39,16 @@ export const navigationModules: NavigationModule[] = [
     id: "pm-mail",
     label: "PM Mail",
     description: "Bandeja operativa y comunicación del ecosistema.",
-    status: "external",
+    status: "planned",
     href: "#pm-mail",
     type: "external",
   },
   {
     id: "control-pem",
     label: "Control PEM",
-    description: "Operación de campo, validaciones y SAT.",
-    status: "external",
-    href: "#control-pem",
+    description: "Control operativo de campo para SAT, validaciones PEM, diarios e incidencias de ejecución.",
+    status: "available",
+    href: CONTROL_PEM_URL,
     type: "external",
   },
   {
