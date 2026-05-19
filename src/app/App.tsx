@@ -13,6 +13,7 @@ import { RecentActivity } from './components/v7/recent-activity';
 import { Badge } from './components/ui/badge';
 import { Button } from './components/ui/button';
 import {
+  CONTROL_PEM_URL,
   getNavigationModule,
   navigationModuleIds,
   type NavigationModuleId,
@@ -53,11 +54,11 @@ const moduleViewConfig: Record<
     ],
   },
   [navigationModuleIds.controlPem]: {
-    statusLabel: 'Operación conectable',
+    statusLabel: 'Disponible',
     statusVariant: 'system',
-    summary: 'Superficie prevista para SAT, validaciones de campo, diarios y control operativo PEM.',
+    summary: 'Acceso operativo al módulo de campo para SAT, validaciones PEM, diarios de ejecución e incidencias.',
     actions: [
-      { label: 'Revisar validaciones', variant: 'system' },
+      { label: 'Revisar validaciones', variant: 'secondary' },
       { label: 'Abrir estado de obra', variant: 'secondary' },
       { label: 'Registrar incidencia', variant: 'ghost' },
     ],
@@ -111,6 +112,7 @@ export default function App() {
   const activeModuleView =
     activeSection === 'home' ? undefined : moduleViewConfig[activeSection];
   const isHome = activeSection === 'home';
+  const isControlPemActive = activeSection === navigationModuleIds.controlPem;
 
   return (
     <div className="min-h-screen bg-[var(--pm-bg-primary)] relative overflow-hidden">
@@ -216,7 +218,9 @@ export default function App() {
                   </Badge>
                   <span className="text-sm text-[var(--pm-text-secondary)]">
                     {activeModule?.type === 'external'
-                      ? 'Módulo externo aún no acoplado'
+                      ? activeModule?.status === 'available'
+                        ? 'Módulo externo disponible'
+                        : 'Módulo externo aún no acoplado'
                       : 'Módulo interno del shell'}
                   </span>
                 </div>
@@ -242,7 +246,11 @@ export default function App() {
                     Tipo
                   </div>
                   <div className="text-xl font-semibold text-[var(--pm-text-primary)]">
-                    {activeModule?.type === 'external' ? 'Módulo desacoplado' : 'Módulo interno'}
+                    {activeModule?.type === 'external'
+                      ? activeModule?.status === 'available'
+                        ? 'Módulo externo disponible'
+                        : 'Módulo desacoplado'
+                      : 'Módulo interno'}
                   </div>
                 </div>
                 <div className="rounded-2xl border border-[var(--pm-border-default)] bg-[var(--pm-surface-primary)] p-5 shadow-sm">
@@ -275,6 +283,17 @@ export default function App() {
                 </div>
 
                 <div className="flex flex-wrap gap-3 mb-8">
+                  {isControlPemActive && (
+                    <Button asChild variant="system">
+                      <a
+                        href={activeModule?.href ?? CONTROL_PEM_URL}
+                        target="_blank"
+                        rel="noreferrer noopener"
+                      >
+                        Abrir Control PEM
+                      </a>
+                    </Button>
+                  )}
                   {activeModuleView?.actions.map((action) => (
                     <Button key={action.label} variant={action.variant}>
                       {action.label}
@@ -360,7 +379,9 @@ export default function App() {
                     </div>
                     <p className="text-[var(--pm-text-primary)] leading-7">
                       {activeModule?.type === 'external'
-                        ? 'El shell ya reconoce el módulo, pero la app real sigue desacoplada.'
+                        ? activeModule?.status === 'available'
+                          ? 'El shell ya entrega acceso operativo al módulo real en nueva pestaña.'
+                          : 'El shell ya reconoce el módulo, pero la app real sigue desacoplada.'
                         : 'El módulo puede evolucionar dentro del shell sin dependencia externa inmediata.'}
                     </p>
                   </div>
