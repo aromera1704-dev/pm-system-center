@@ -11,13 +11,12 @@ export type NavigationModule = {
 };
 
 export const navigationModuleIds = {
+  myTasks: "my-tasks",
+  calendar: "calendar",
+  tools: "tools",
   projectHub: "project-hub",
   pmMail: "pm-mail",
   controlPem: "control-pem",
-  docs: "docs",
-  automation: "automation",
-  kpis: "kpis",
-  system: "system",
 } as const;
 
 export type NavigationModuleId =
@@ -32,8 +31,24 @@ export const CONTROL_PEM_URL = "https://control-pem.arlprojects.com";
 
 export const navigationModules: NavigationModule[] = [
   {
+    id: "my-tasks",
+    label: "Mis tareas",
+    description: "Placeholder interno para foco operativo, priorización y seguimiento personal.",
+    status: "available",
+    href: "#my-tasks",
+    type: "internal",
+  },
+  {
+    id: "calendar",
+    label: "Calendario",
+    description: "Placeholder interno para agenda operativa, hitos y coordinación temporal.",
+    status: "available",
+    href: "#calendar",
+    type: "internal",
+  },
+  {
     id: "project-hub",
-    label: "Proyectos",
+    label: "Project Hub",
     description: "Gestión operativa de proyectos industriales.",
     status: "available",
     href: PROJECT_HUB_URL,
@@ -56,46 +71,16 @@ export const navigationModules: NavigationModule[] = [
     type: "external",
   },
   {
-    id: "docs",
-    label: "Docs",
-    description: "Acceso documental y trazabilidad técnica.",
+    id: "tools",
+    label: "Herramientas",
+    description: "Accesos internos agrupados para Docs, GitHub, n8n, IA / Agents, Automatizaciones y KPIs.",
     status: "available",
-    href: "#docs",
-    type: "internal",
-  },
-  {
-    id: "automation",
-    label: "Automatización",
-    description: "Workflows, agentes y procesos asistidos.",
-    status: "available",
-    href: "#automation",
-    type: "internal",
-  },
-  {
-    id: "kpis",
-    label: "KPIs",
-    description: "Métricas y estado agregado del sistema.",
-    status: "available",
-    href: "#kpis",
-    type: "internal",
-  },
-  {
-    id: "system",
-    label: "Sistema",
-    description: "Configuración y estado del shell operativo.",
-    status: "available",
-    href: "#system",
+    href: "#tools",
     type: "internal",
   },
 ];
 
-export const primaryNavigationModules = navigationModules.filter(
-  (module) => module.id !== "system",
-);
-
-export const systemNavigationModule = navigationModules.find(
-  (module) => module.id === "system",
-)!;
+export const primaryNavigationModules = navigationModules;
 
 export function getNavigationModule(id: string) {
   return navigationModules.find((module) => module.id === id);

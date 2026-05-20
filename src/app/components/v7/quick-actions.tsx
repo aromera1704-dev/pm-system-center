@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { FolderOpen, Building2, FileCheck, Workflow, FileText, Shield } from 'lucide-react';
+import { FolderOpen, CalendarDays, Mail, Wrench, Building2, Shield } from 'lucide-react';
 import {
   getNavigationModule,
   type NavigationModuleId,
@@ -8,34 +8,36 @@ import {
 
 const actions = [
   {
-    moduleId: navigationModuleIds.projectHub,
-    label: 'Revisar proyecto',
+    moduleId: navigationModuleIds.myTasks,
+    label: 'Priorizar tareas',
     icon: FolderOpen,
     color: 'var(--pm-action-primary)',
     count: '12',
   },
   {
-    moduleId: navigationModuleIds.controlPem,
-    label: 'Estado de obra',
-    icon: Building2,
+    moduleId: navigationModuleIds.calendar,
+    label: 'Agenda del día',
+    icon: CalendarDays,
     color: 'var(--pm-warning)',
     count: '3',
   },
   {
-    label: 'Generar plan de acción',
-    icon: FileCheck,
+    moduleId: navigationModuleIds.pmMail,
+    label: 'PM Mail',
+    icon: Mail,
     color: 'var(--pm-text-secondary)',
   },
   {
-    moduleId: navigationModuleIds.automation,
-    icon: Workflow,
+    moduleId: navigationModuleIds.tools,
+    label: 'Abrir herramientas',
+    icon: Wrench,
     color: 'var(--pm-ai-text)',
     count: '8',
   },
   {
-    moduleId: navigationModuleIds.docs,
-    label: 'Informe diario',
-    icon: FileText,
+    moduleId: navigationModuleIds.projectHub,
+    label: 'Project Hub',
+    icon: Building2,
     color: 'var(--pm-warning)',
   },
   {

@@ -64,44 +64,34 @@ const moduleViewConfig: Record<
       { label: 'Registrar incidencia', variant: 'ghost' },
     ],
   },
-  [navigationModuleIds.docs]: {
-    statusLabel: 'Disponible',
-    statusVariant: 'system',
-    summary: 'Acceso documental técnico, versiones maestras y trazabilidad del ecosistema PM-System.',
-    actions: [
-      { label: 'Abrir documentación maestra', variant: 'system' },
-      { label: 'Ver auditorías UI', variant: 'secondary' },
-      { label: 'Buscar documento', variant: 'ghost' },
-    ],
-  },
-  [navigationModuleIds.automation]: {
-    statusLabel: 'Asistencia activa',
-    statusVariant: 'ai',
-    summary: 'Área operativa para workflows, agentes, automatización asistida y coordinación de procesos.',
-    actions: [
-      { label: 'Ver automatizaciones', variant: 'ai' },
-      { label: 'Revisar agentes', variant: 'secondary' },
-      { label: 'Lanzar acción asistida', variant: 'ghost' },
-    ],
-  },
-  [navigationModuleIds.kpis]: {
-    statusLabel: 'Disponible',
-    statusVariant: 'system',
-    summary: 'Panel contextual para métricas agregadas, salud del sistema y lectura ejecutiva del estado actual.',
-    actions: [
-      { label: 'Ver resumen ejecutivo', variant: 'system' },
-      { label: 'Abrir métricas críticas', variant: 'secondary' },
-      { label: 'Comparar tendencia', variant: 'ghost' },
-    ],
-  },
-  [navigationModuleIds.system]: {
-    statusLabel: 'Shell operativo',
+  [navigationModuleIds.myTasks]: {
+    statusLabel: 'Placeholder interno',
     statusVariant: 'outline',
-    summary: 'Configuración del shell, estado de base visual y control estructural del Centro de Operaciones.',
+    summary: 'Módulo interno provisional para concentrar trabajo asignado, prioridad operativa y seguimiento inmediato.',
     actions: [
-      { label: 'Revisar shell activo', variant: 'system' },
-      { label: 'Ver estado visual', variant: 'secondary' },
-      { label: 'Abrir ajustes base', variant: 'ghost' },
+      { label: 'Ver cola priorizada', variant: 'system' },
+      { label: 'Revisar bloqueos', variant: 'secondary' },
+      { label: 'Preparar módulo real', variant: 'ghost' },
+    ],
+  },
+  [navigationModuleIds.calendar]: {
+    statusLabel: 'Placeholder interno',
+    statusVariant: 'outline',
+    summary: 'Módulo interno provisional para agenda, hitos y coordinación temporal sin integración de calendario real todavía.',
+    actions: [
+      { label: 'Ver agenda operativa', variant: 'system' },
+      { label: 'Revisar hitos', variant: 'secondary' },
+      { label: 'Preparar integración', variant: 'ghost' },
+    ],
+  },
+  [navigationModuleIds.tools]: {
+    statusLabel: 'Disponible',
+    statusVariant: 'system',
+    summary: 'Sección interna que agrupa accesos secundarios a Docs, GitHub, n8n, IA / Agents, Automatizaciones y KPIs.',
+    actions: [
+      { label: 'Abrir Docs', variant: 'system' },
+      { label: 'Ir a GitHub', variant: 'secondary' },
+      { label: 'Revisar n8n', variant: 'ghost' },
     ],
   },
 };
@@ -117,16 +107,45 @@ export default function App() {
     activeModule?.type === 'external' && activeModule?.status === 'available';
   const externalModuleCtaLabel =
     activeSection === navigationModuleIds.projectHub
-      ? 'Abrir Proyectos'
+      ? 'Abrir Project Hub'
       : activeSection === navigationModuleIds.controlPem
       ? 'Abrir Control PEM'
       : `Abrir ${activeModule?.label ?? 'módulo externo'}`;
   const externalModuleHref =
     activeSection === navigationModuleIds.projectHub
-      ? activeModule?.href ?? PROJECT_HUB_URL
+      ? PROJECT_HUB_URL
       : activeSection === navigationModuleIds.controlPem
       ? activeModule?.href ?? CONTROL_PEM_URL
       : activeModule?.href;
+  const toolLinks =
+    activeSection === navigationModuleIds.tools
+      ? [
+          {
+            title: 'Docs',
+            description: 'Documentación operativa y trazabilidad técnica del ecosistema PM System.',
+          },
+          {
+            title: 'GitHub',
+            description: 'Código, incidencias, PRs y seguimiento técnico del stack conectado.',
+          },
+          {
+            title: 'n8n',
+            description: 'Workflows operativos y automatizaciones orquestadas fuera del shell.',
+          },
+          {
+            title: 'IA / Agents',
+            description: 'Asistentes, agentes y flujos de apoyo para ejecución operativa.',
+          },
+          {
+            title: 'Automatizaciones',
+            description: 'Acciones recurrentes, triggers y soporte de procesos automatizados.',
+          },
+          {
+            title: 'KPIs',
+            description: 'Lectura ejecutiva de métricas y salud agregada del sistema.',
+          },
+        ]
+      : [];
 
   return (
     <div className="min-h-screen bg-[var(--pm-bg-primary)] relative overflow-hidden">
@@ -316,22 +335,40 @@ export default function App() {
                 </div>
 
                 <div className="grid grid-cols-2 gap-4">
-                  <div className="rounded-2xl border border-[var(--pm-border-default)] bg-[var(--pm-surface-secondary)] p-5">
-                    <div className="text-xs uppercase tracking-wider text-[var(--pm-text-tertiary)] mb-2 font-semibold">
-                      Siguiente paso
-                    </div>
-                    <p className="text-[var(--pm-text-primary)] leading-7">
-                      Conectar este módulo a su app real cuando exista un contrato de navegación y estado compartido.
-                    </p>
-                  </div>
-                  <div className="rounded-2xl border border-[var(--pm-border-default)] bg-[var(--pm-surface-secondary)] p-5">
-                    <div className="text-xs uppercase tracking-wider text-[var(--pm-text-tertiary)] mb-2 font-semibold">
-                      Límite actual
-                    </div>
-                    <p className="text-[var(--pm-text-primary)] leading-7">
-                      Esta vista no hace fetch ni resuelve backend. Solo valida comportamiento modular del shell.
-                    </p>
-                  </div>
+                  {activeSection === navigationModuleIds.tools ? (
+                    toolLinks.map((tool) => (
+                      <div
+                        key={tool.title}
+                        className="rounded-2xl border border-[var(--pm-border-default)] bg-[var(--pm-surface-secondary)] p-5"
+                      >
+                        <div className="text-xs uppercase tracking-wider text-[var(--pm-text-tertiary)] mb-2 font-semibold">
+                          {tool.title}
+                        </div>
+                        <p className="text-[var(--pm-text-primary)] leading-7">
+                          {tool.description}
+                        </p>
+                      </div>
+                    ))
+                  ) : (
+                    <>
+                      <div className="rounded-2xl border border-[var(--pm-border-default)] bg-[var(--pm-surface-secondary)] p-5">
+                        <div className="text-xs uppercase tracking-wider text-[var(--pm-text-tertiary)] mb-2 font-semibold">
+                          Siguiente paso
+                        </div>
+                        <p className="text-[var(--pm-text-primary)] leading-7">
+                          Conectar este módulo a su app real cuando exista un contrato de navegación y estado compartido.
+                        </p>
+                      </div>
+                      <div className="rounded-2xl border border-[var(--pm-border-default)] bg-[var(--pm-surface-secondary)] p-5">
+                        <div className="text-xs uppercase tracking-wider text-[var(--pm-text-tertiary)] mb-2 font-semibold">
+                          Límite actual
+                        </div>
+                        <p className="text-[var(--pm-text-primary)] leading-7">
+                          Esta vista no hace fetch ni resuelve backend. Solo valida comportamiento modular del shell.
+                        </p>
+                      </div>
+                    </>
+                  )}
                 </div>
               </div>
             </motion.div>

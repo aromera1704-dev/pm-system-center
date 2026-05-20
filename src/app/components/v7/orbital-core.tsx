@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Layers, Shield, Workflow, GitBranch, FileText, Bot, BarChart3, Zap } from 'lucide-react';
+import { CheckSquare, CalendarDays, Mail, Layers, Shield, Wrench } from 'lucide-react';
 import {
   getNavigationModule,
   type NavigationModuleId,
@@ -7,14 +7,12 @@ import {
 } from '../../navigation';
 
 const modules = [
-  { moduleId: navigationModuleIds.projectHub, icon: Layers, angle: 0, color: 'var(--pm-primary-blue)', bg: 'var(--pm-primary-blue)', status: 'active' },
-  { moduleId: navigationModuleIds.controlPem, icon: Shield, angle: 45, color: 'var(--pm-primary-blue)', bg: 'var(--pm-primary-blue)', status: 'active' },
-  { moduleId: navigationModuleIds.automation, icon: Workflow, angle: 90, color: 'var(--pm-ai-magenta)', bg: 'var(--pm-ai-magenta)', status: 'active' },
-  { name: 'n8n', icon: Zap, angle: 135, color: 'var(--pm-ai-magenta)', bg: 'var(--pm-ai-magenta)', status: 'active' },
-  { moduleId: navigationModuleIds.docs, icon: FileText, angle: 180, color: 'var(--pm-text-secondary)', bg: 'var(--pm-surface-secondary)', status: 'idle' },
-  { name: 'GitHub', icon: GitBranch, angle: 225, color: 'var(--pm-primary-blue)', bg: 'var(--pm-primary-blue)', status: 'active' },
-  { name: 'IA Agents', icon: Bot, angle: 270, color: 'var(--pm-ai-magenta)', bg: 'var(--pm-ai-magenta)', status: 'active' },
-  { moduleId: navigationModuleIds.kpis, icon: BarChart3, angle: 315, color: 'var(--pm-primary-blue)', bg: 'var(--pm-primary-blue)', status: 'active' },
+  { moduleId: navigationModuleIds.myTasks, icon: CheckSquare, angle: 0, color: 'var(--pm-primary-blue)', bg: 'var(--pm-primary-blue)', status: 'active' },
+  { moduleId: navigationModuleIds.calendar, icon: CalendarDays, angle: 60, color: 'var(--pm-primary-blue)', bg: 'var(--pm-primary-blue)', status: 'active' },
+  { moduleId: navigationModuleIds.pmMail, icon: Mail, angle: 120, color: 'var(--pm-text-secondary)', bg: 'var(--pm-surface-secondary)', status: 'idle' },
+  { moduleId: navigationModuleIds.projectHub, icon: Layers, angle: 180, color: 'var(--pm-primary-blue)', bg: 'var(--pm-primary-blue)', status: 'active' },
+  { moduleId: navigationModuleIds.controlPem, icon: Shield, angle: 240, color: 'var(--pm-primary-blue)', bg: 'var(--pm-primary-blue)', status: 'active' },
+  { moduleId: navigationModuleIds.tools, icon: Wrench, angle: 300, color: 'var(--pm-ai-magenta)', bg: 'var(--pm-ai-magenta)', status: 'active' },
 ];
 
 type OrbitalCoreProps = {
@@ -65,7 +63,7 @@ export function OrbitalCore({ onModuleSelect }: OrbitalCoreProps) {
         const navigationModule = module.moduleId
           ? getNavigationModule(module.moduleId)
           : undefined;
-        const moduleLabel = navigationModule?.label ?? module.name ?? 'Módulo';
+        const moduleLabel = navigationModule?.label ?? 'Módulo';
         const x = Math.cos((module.angle * Math.PI) / 180) * radius;
         const y = Math.sin((module.angle * Math.PI) / 180) * radius;
         const labelPosition =

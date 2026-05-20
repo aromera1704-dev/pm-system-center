@@ -1,26 +1,24 @@
 import {
+  House,
+  CheckSquare,
+  CalendarDays,
   Layers,
   Mail,
   Shield,
-  Workflow,
-  FileText,
-  BarChart3,
-  Settings,
+  Wrench,
 } from 'lucide-react';
 import {
   primaryNavigationModules,
   type NavigationModuleId,
-  systemNavigationModule,
 } from '../../navigation';
 
 const iconMap = {
+  'my-tasks': CheckSquare,
+  calendar: CalendarDays,
   'project-hub': Layers,
   'pm-mail': Mail,
   'control-pem': Shield,
-  docs: FileText,
-  automation: Workflow,
-  kpis: BarChart3,
-  system: Settings,
+  tools: Wrench,
 } as const;
 
 type SidebarProps = {
@@ -51,6 +49,24 @@ export function Sidebar({
 
       {/* Navigation */}
       <nav className="flex-1 flex flex-col gap-4">
+        <button
+          type="button"
+          onClick={onHomeSelect}
+          className={`group relative flex items-center justify-center w-12 h-12 rounded-xl transition-all duration-300 ${
+            activeModuleId === undefined
+              ? 'bg-[var(--pm-soft-blue-bg)] text-[var(--pm-link)] shadow-sm'
+              : 'text-[var(--pm-text-secondary)] hover:text-[var(--pm-link)] hover:bg-[var(--pm-surface-secondary)]'
+          }`}
+          title="Home"
+          aria-label="Home"
+          aria-pressed={activeModuleId === undefined}
+        >
+          <House className="w-5 h-5" />
+          <div className="absolute left-full ml-3 px-3 py-1.5 bg-[var(--pm-surface-tooltip)] backdrop-blur-md rounded-lg text-sm text-[var(--pm-surface-tooltip-foreground)] opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap shadow-xl">
+            Home
+          </div>
+        </button>
+
         {primaryNavigationModules.map((item) => {
           const Icon = iconMap[item.id as keyof typeof iconMap];
           const isActive = item.id === activeModuleId;
@@ -76,25 +92,6 @@ export function Sidebar({
           </button>
         )})}
       </nav>
-
-      {/* Settings */}
-      <button
-        type="button"
-        onClick={() => onModuleSelect(systemNavigationModule.id)}
-        className={`group relative flex items-center justify-center w-12 h-12 rounded-xl transition-all duration-300 ${
-          systemNavigationModule.id === activeModuleId
-            ? 'bg-[var(--pm-soft-blue-bg)] text-[var(--pm-link)] shadow-sm'
-            : 'text-[var(--pm-text-secondary)] hover:text-[var(--pm-link)] hover:bg-[var(--pm-surface-secondary)]'
-        }`}
-        title={systemNavigationModule.label}
-        aria-label={systemNavigationModule.label}
-        aria-pressed={systemNavigationModule.id === activeModuleId}
-      >
-        <Settings className="w-5 h-5" />
-        <div className="absolute left-full ml-3 px-3 py-1.5 bg-[var(--pm-surface-tooltip)] backdrop-blur-md rounded-lg text-sm text-[var(--pm-surface-tooltip-foreground)] opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap shadow-xl">
-          {systemNavigationModule.label}
-        </div>
-      </button>
     </div>
   );
 }
