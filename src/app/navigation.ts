@@ -24,7 +24,8 @@ export type NavigationModuleId =
   (typeof navigationModuleIds)[keyof typeof navigationModuleIds];
 
 // Sustituir por la URL final publicada del módulo cuando exista.
-export const PROJECT_HUB_URL = "http://localhost:5173/projects";
+export const PROJECT_HUB_URL =
+  import.meta.env.VITE_PROJECT_HUB_URL ?? "http://localhost:5173/projects";
 
 // Sustituir por la URL final publicada del módulo cuando exista.
 export const CONTROL_PEM_URL = "https://control-pem.arlprojects.com";
