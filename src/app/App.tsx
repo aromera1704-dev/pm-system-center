@@ -14,6 +14,7 @@ import { Badge } from './components/ui/badge';
 import { Button } from './components/ui/button';
 import {
   CONTROL_PEM_URL,
+  PROJECT_HUB_URL,
   getNavigationModule,
   navigationModuleIds,
   type NavigationModuleId,
@@ -34,13 +35,13 @@ const moduleViewConfig: Record<
   }
 > = {
   [navigationModuleIds.projectHub]: {
-    statusLabel: 'Acceso externo preparado',
-    statusVariant: 'outline',
-    summary: 'Punto de entrada al seguimiento de proyectos, planificación y control documental industrial.',
+    statusLabel: 'Disponible',
+    statusVariant: 'system',
+    summary: 'Acceso externo operativo al workspace especializado de proyectos con entrada directa al listado principal.',
     actions: [
       { label: 'Abrir contexto de proyecto', variant: 'system' },
       { label: 'Ver hitos activos', variant: 'secondary' },
-      { label: 'Preparar enlace externo', variant: 'ghost' },
+      { label: 'Abrir listado de proyectos', variant: 'ghost' },
     ],
   },
   [navigationModuleIds.pmMail]: {
@@ -112,7 +113,20 @@ export default function App() {
   const activeModuleView =
     activeSection === 'home' ? undefined : moduleViewConfig[activeSection];
   const isHome = activeSection === 'home';
-  const isControlPemActive = activeSection === navigationModuleIds.controlPem;
+  const isExternalModuleActive =
+    activeModule?.type === 'external' && activeModule?.status === 'available';
+  const externalModuleCtaLabel =
+    activeSection === navigationModuleIds.projectHub
+      ? 'Abrir Proyectos'
+      : activeSection === navigationModuleIds.controlPem
+      ? 'Abrir Control PEM'
+      : `Abrir ${activeModule?.label ?? 'módulo externo'}`;
+  const externalModuleHref =
+    activeSection === navigationModuleIds.projectHub
+      ? activeModule?.href ?? PROJECT_HUB_URL
+      : activeSection === navigationModuleIds.controlPem
+      ? activeModule?.href ?? CONTROL_PEM_URL
+      : activeModule?.href;
 
   return (
     <div className="min-h-screen bg-[var(--pm-bg-primary)] relative overflow-hidden">
@@ -283,14 +297,14 @@ export default function App() {
                 </div>
 
                 <div className="flex flex-wrap gap-3 mb-8">
-                  {isControlPemActive && (
+                  {isExternalModuleActive && externalModuleHref && (
                     <Button asChild variant="system">
                       <a
-                        href={activeModule?.href ?? CONTROL_PEM_URL}
+                        href={externalModuleHref}
                         target="_blank"
                         rel="noreferrer noopener"
                       >
-                        Abrir Control PEM
+                        {externalModuleCtaLabel}
                       </a>
                     </Button>
                   )}
