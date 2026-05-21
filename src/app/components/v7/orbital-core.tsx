@@ -7,12 +7,12 @@ import {
 } from '../../navigation';
 
 const modules = [
-  { moduleId: navigationModuleIds.myTasks, icon: CheckSquare, angle: 235, color: 'var(--pm-primary-blue)', bg: 'var(--pm-primary-blue)', status: 'active' },
-  { moduleId: navigationModuleIds.pmMail, icon: Mail, angle: 305, color: 'var(--pm-text-secondary)', bg: 'var(--pm-surface-secondary)', status: 'idle' },
-  { moduleId: navigationModuleIds.projectHub, icon: Layers, angle: 180, color: 'var(--pm-primary-blue)', bg: 'var(--pm-primary-blue)', status: 'active' },
-  { moduleId: navigationModuleIds.controlPem, icon: Shield, angle: 0, color: 'var(--pm-primary-blue)', bg: 'var(--pm-primary-blue)', status: 'active' },
-  { moduleId: navigationModuleIds.calendar, icon: CalendarDays, angle: 125, color: 'var(--pm-primary-blue)', bg: 'var(--pm-primary-blue)', status: 'active' },
-  { moduleId: navigationModuleIds.tools, icon: Wrench, angle: 55, color: 'var(--pm-ai-magenta)', bg: 'var(--pm-ai-magenta)', status: 'active' },
+  { moduleId: navigationModuleIds.myTasks, icon: CheckSquare, angle: 235, color: 'var(--pm-primary-blue)', bg: 'color-mix(in srgb, var(--pm-primary-blue) 88%, white)', glow: 'rgba(32, 92, 255, 0.18)', status: 'active', labelPosition: 'top-full mt-3 left-1/2 -translate-x-1/2 text-center' },
+  { moduleId: navigationModuleIds.pmMail, icon: Mail, angle: 305, color: 'color-mix(in srgb, var(--pm-text-secondary) 82%, white)', bg: 'color-mix(in srgb, #5c6470 82%, white)', glow: 'rgba(92, 100, 112, 0.14)', status: 'idle', labelPosition: 'left-full ml-3 top-1/2 -translate-y-1/2 text-left' },
+  { moduleId: navigationModuleIds.projectHub, icon: Layers, angle: 180, color: '#1aa7d7', bg: 'color-mix(in srgb, #1aa7d7 84%, white)', glow: 'rgba(26, 167, 215, 0.18)', status: 'active', labelPosition: 'right-full mr-3 top-1/2 -translate-y-1/2 text-right' },
+  { moduleId: navigationModuleIds.controlPem, icon: Shield, angle: 0, color: '#1f4fbf', bg: 'color-mix(in srgb, #1f4fbf 86%, white)', glow: 'rgba(31, 79, 191, 0.18)', status: 'active', labelPosition: 'left-full ml-3 top-1/2 -translate-y-1/2 text-left' },
+  { moduleId: navigationModuleIds.calendar, icon: CalendarDays, angle: 125, color: '#63b3ff', bg: 'color-mix(in srgb, #63b3ff 82%, white)', glow: 'rgba(99, 179, 255, 0.18)', status: 'active', labelPosition: 'top-full mt-3 left-1/2 -translate-x-1/2 text-center' },
+  { moduleId: navigationModuleIds.tools, icon: Wrench, angle: 55, color: 'var(--pm-ai-magenta)', bg: 'color-mix(in srgb, var(--pm-ai-magenta) 84%, white)', glow: 'rgba(214, 91, 170, 0.18)', status: 'active', labelPosition: 'top-full mt-3 left-1/2 -translate-x-1/2 text-center' },
 ];
 
 type OrbitalCoreProps = {
@@ -42,17 +42,27 @@ export function OrbitalCore({ onModuleSelect }: OrbitalCoreProps) {
             repeat: Infinity,
             ease: 'easeInOut',
           }}
-          className="absolute inset-0 rounded-full bg-[var(--pm-gradient-ai-soft)] blur-xl"
+          className="absolute inset-0 rounded-full blur-2xl"
+          style={{
+            background:
+              'radial-gradient(circle, color-mix(in srgb, var(--pm-primary-blue) 14%, white) 0%, color-mix(in srgb, var(--pm-ai-magenta) 8%, white) 44%, transparent 72%)',
+          }}
         />
 
         {/* Core circle */}
-        <div className="relative w-28 h-28 rounded-full bg-[var(--pm-gradient-ai)] shadow-xl flex items-center justify-center">
-          <div className="absolute inset-[5px] rounded-full bg-[var(--pm-gradient-ai)] opacity-20 blur-[2px]" />
-          <div className="relative w-24 h-24 rounded-full bg-[var(--pm-surface-primary)] border-2 border-[var(--pm-border-default)] flex items-center justify-center shadow-lg">
+        <div
+          className="relative w-28 h-28 rounded-full shadow-[0_20px_48px_rgba(59,130,246,0.14)] flex items-center justify-center"
+          style={{
+            background:
+              'linear-gradient(145deg, color-mix(in srgb, var(--pm-primary-blue) 12%, white) 0%, color-mix(in srgb, var(--pm-ai-magenta) 10%, white) 100%)',
+          }}
+        >
+          <div className="absolute inset-[2px] rounded-full border border-white/40" />
+          <div className="relative w-24 h-24 rounded-full bg-[var(--pm-surface-primary)] border border-[var(--pm-border-default)] flex items-center justify-center shadow-lg">
             <div className="absolute inset-[6px] rounded-full border border-[var(--pm-border-ai)]" />
             <div className="text-center">
-              <div className="text-[11px] text-[var(--pm-text-secondary)] uppercase tracking-[0.24em] font-semibold">PM</div>
-              <div className="text-[22px] leading-none font-bold bg-[var(--pm-gradient-ai)] bg-clip-text text-transparent">Core</div>
+              <div className="text-[20px] leading-none font-bold text-[var(--pm-text-primary)]">PM</div>
+              <div className="mt-1 text-[10px] uppercase tracking-[0.18em] font-semibold text-[var(--pm-text-secondary)]">Center</div>
             </div>
           </div>
         </div>
@@ -66,14 +76,14 @@ export function OrbitalCore({ onModuleSelect }: OrbitalCoreProps) {
         const moduleLabel = navigationModule?.label ?? 'Módulo';
         const x = Math.cos((module.angle * Math.PI) / 180) * radius;
         const y = Math.sin((module.angle * Math.PI) / 180) * radius;
-        const labelPosition =
-          module.angle >= 315 || module.angle < 45
+        const labelPosition = module.labelPosition ??
+          (module.angle >= 315 || module.angle < 45
             ? 'left-full ml-3 top-1/2 -translate-y-1/2 text-left'
-          : module.angle >= 45 && module.angle < 135
+            : module.angle >= 45 && module.angle < 135
             ? 'bottom-full mb-2.5 left-1/2 -translate-x-1/2 text-center'
             : module.angle >= 135 && module.angle < 225
             ? 'right-full mr-3 top-1/2 -translate-y-1/2 text-right'
-            : 'top-full mt-2.5 left-1/2 -translate-x-1/2 text-center';
+            : 'top-full mt-2.5 left-1/2 -translate-x-1/2 text-center');
 
         return (
           <motion.div
@@ -125,15 +135,18 @@ export function OrbitalCore({ onModuleSelect }: OrbitalCoreProps) {
             >
               {/* Node */}
               <div
-                className="relative w-16 h-16 rounded-xl flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 border"
+                className="relative w-16 h-16 rounded-xl flex items-center justify-center hover:shadow-[0_18px_36px_rgba(15,23,42,0.16)] transition-all duration-300 border overflow-hidden"
                 style={{
-                  backgroundColor: module.bg,
+                  background: module.bg,
+                  boxShadow: `0 14px 30px ${module.glow}`,
                   borderColor: module.status === 'active' ? 'rgba(255, 255, 255, 0.55)' : 'var(--pm-border-default)',
                 }}
               >
+                <div className="absolute inset-0 opacity-50 bg-[linear-gradient(180deg,rgba(255,255,255,0.18),transparent_58%)]" />
+                <div className="absolute -left-1 top-1 h-5 w-5 rounded-full bg-white/18 blur-md" />
                 <module.icon
-                  className="w-6 h-6"
-                  style={{ color: module.status === 'active' ? 'var(--pm-text-inverse)' : module.color }}
+                  className="relative z-10 w-6 h-6"
+                  style={{ color: 'var(--pm-text-inverse)' }}
                 />
                 {module.status === 'active' && (
                   <div className="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-[var(--pm-success)] border-2 border-[var(--pm-surface-primary)] animate-pulse shadow-sm" />

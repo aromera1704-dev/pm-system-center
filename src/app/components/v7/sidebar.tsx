@@ -42,12 +42,12 @@ export function Sidebar({
       <button
         type="button"
         onClick={onHomeSelect}
-        className="relative mb-12 flex items-center justify-center w-12 h-12 rounded-xl bg-[var(--pm-primary-blue)] shadow-lg transition-transform duration-200 hover:scale-[1.02]"
+        className="relative mb-12 flex items-center justify-center w-12 h-12 rounded-xl bg-[var(--pm-primary-blue)] shadow-[0_14px_32px_rgba(32,92,255,0.18)] transition-transform duration-200 hover:scale-[1.02] overflow-hidden"
         title="Centro de Operaciones"
       >
-        <div className="absolute inset-[1px] rounded-[11px] border border-white/10" />
+        <div className="absolute inset-[1px] rounded-[11px] border border-white/16" />
         <div className="absolute top-1.5 right-1.5 w-1.5 h-1.5 rounded-full bg-[var(--pm-ai-magenta)]" />
-        <span className="text-xl font-bold text-[var(--pm-text-inverse)]">PM</span>
+        <span className="text-[0.68rem] font-bold tracking-[0.16em] text-[var(--pm-text-inverse)]">PMC</span>
       </button>
 
       {/* Navigation */}

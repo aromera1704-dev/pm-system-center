@@ -179,26 +179,36 @@ export default function App() {
       <div className="fixed inset-0 pointer-events-none">
         <motion.div
           animate={{
-            opacity: [0.03, 0.05, 0.03],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: 'easeInOut',
-          }}
-          className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-[var(--pm-primary-blue)] rounded-full blur-[150px]"
-        />
-        <motion.div
-          animate={{
-            opacity: [0.02, 0.04, 0.02],
+            opacity: [0.035, 0.06, 0.035],
+            scale: [1, 1.04, 1],
           }}
           transition={{
             duration: 12,
             repeat: Infinity,
             ease: 'easeInOut',
+          }}
+          className="absolute top-[-80px] left-[18%] w-[560px] h-[560px] rounded-full blur-[180px]"
+          style={{
+            background:
+              'radial-gradient(circle, color-mix(in srgb, var(--pm-primary-blue) 18%, white) 0%, color-mix(in srgb, var(--pm-primary-blue) 8%, transparent) 42%, transparent 72%)',
+          }}
+        />
+        <motion.div
+          animate={{
+            opacity: [0.025, 0.05, 0.025],
+            scale: [1, 1.05, 1],
+          }}
+          transition={{
+            duration: 14,
+            repeat: Infinity,
+            ease: 'easeInOut',
             delay: 3,
           }}
-          className="absolute bottom-0 right-1/4 w-[450px] h-[450px] bg-[var(--pm-ai-magenta)] rounded-full blur-[150px]"
+          className="absolute bottom-[-90px] right-[16%] w-[520px] h-[520px] rounded-full blur-[180px]"
+          style={{
+            background:
+              'radial-gradient(circle, color-mix(in srgb, var(--pm-ai-magenta) 16%, white) 0%, color-mix(in srgb, var(--pm-ai-magenta) 7%, transparent) 40%, transparent 72%)',
+          }}
         />
       </div>
 
@@ -236,11 +246,32 @@ export default function App() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
-                className="mb-12"
+                className="relative mb-12 overflow-hidden rounded-[32px] border border-[color-mix(in_srgb,var(--pm-border-default)_78%,white)] bg-[color-mix(in_srgb,var(--pm-surface-primary)_90%,white)] px-10 py-10 shadow-[0_24px_80px_rgba(15,23,42,0.08)]"
               >
-                <h1 className="text-7xl font-bold text-[var(--pm-text-primary)] mb-4 tracking-tight">
-                  Centro de Operaciones
-                </h1>
+                <div
+                  className="pointer-events-none absolute inset-0 opacity-80"
+                  style={{
+                    background:
+                      'linear-gradient(135deg, color-mix(in srgb, var(--pm-primary-blue) 9%, white) 0%, transparent 34%, transparent 66%, color-mix(in srgb, var(--pm-ai-magenta) 8%, white) 100%)',
+                  }}
+                />
+                <div className="pointer-events-none absolute -left-16 top-0 h-40 w-40 rounded-full blur-3xl"
+                  style={{ background: 'color-mix(in srgb, var(--pm-primary-blue) 10%, white)' }}
+                />
+                <div className="pointer-events-none absolute -right-10 bottom-0 h-36 w-36 rounded-full blur-3xl"
+                  style={{ background: 'color-mix(in srgb, var(--pm-ai-magenta) 10%, white)' }}
+                />
+                <div className="relative z-10">
+                  <div className="mb-2 text-[1.75rem] font-semibold tracking-[-0.04em] text-[var(--pm-text-primary)]">
+                    PM Center
+                  </div>
+                  <h1 className="text-[3.55rem] font-bold text-[var(--pm-text-primary)] tracking-[-0.05em] leading-none mb-3">
+                    Centro de Operaciones
+                  </h1>
+                  <p className="max-w-2xl text-[15px] leading-7 text-[var(--pm-text-secondary)] mb-8">
+                    Vista central para coordinar tareas, hitos, riesgos y accesos operativos del ecosistema PM.
+                  </p>
+                </div>
                 <LiveMetrics />
               </motion.div>
 
@@ -424,10 +455,8 @@ export default function App() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.6 }}
-                  className="text-center mb-6"
+                  className="mb-6 h-[34px]"
                 >
-                  <h3 className="text-sm font-semibold text-[var(--pm-text-primary)] uppercase tracking-wide mb-1">Módulos del Sistema</h3>
-                  <p className="text-xs text-[var(--pm-text-secondary)]">Estado en tiempo real</p>
                 </motion.div>
 
                 {/* Orbital Core */}

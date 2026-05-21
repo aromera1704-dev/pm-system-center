@@ -9,10 +9,24 @@ export function CommandBar() {
       transition={{ delay: 0.3 }}
       className="relative group"
     >
-      <div className="relative bg-[var(--pm-surface-primary)] border border-[var(--pm-border-default)] rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:border-[var(--pm-border-strong)]">
+      <div className="relative overflow-hidden bg-[var(--pm-surface-primary)] border border-[var(--pm-border-default)] rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:border-[var(--pm-border-strong)]">
+        <div
+          className="pointer-events-none absolute inset-0 opacity-70"
+          style={{
+            background:
+              'linear-gradient(90deg, color-mix(in srgb, var(--pm-primary-blue) 4%, white) 0%, transparent 40%, transparent 60%, color-mix(in srgb, var(--pm-ai-magenta) 4%, white) 100%)',
+          }}
+        />
         <div className="flex items-center gap-4">
-          <div className="flex items-center justify-center w-11 h-11 rounded-xl bg-gradient-to-br from-[var(--pm-primary-blue)] to-[var(--pm-ai-magenta)] shadow-md">
-            <Sparkles className="w-5 h-5 text-[var(--pm-text-inverse)]" />
+          <div
+            className="relative flex items-center justify-center w-11 h-11 rounded-xl border border-[color-mix(in_srgb,var(--pm-border-default)_70%,white)] shadow-[0_14px_32px_rgba(214,91,170,0.16)] overflow-hidden"
+            style={{
+              background: 'color-mix(in srgb, var(--pm-ai-magenta) 84%, white)',
+            }}
+          >
+            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.22),transparent_60%)]" />
+            <div className="absolute -left-1 top-1 h-5 w-5 rounded-full bg-white/25 blur-md" />
+            <Sparkles className="relative z-10 w-5 h-5 text-[var(--pm-text-inverse)]" />
           </div>
 
           <input
