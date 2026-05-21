@@ -250,6 +250,12 @@
   padding: 8px 10px;
   border-radius: var(--radius-sm);
   cursor: pointer;
+  font-size: 0.74rem;
+  font-weight: 500;
+}
+
+.projecthub-port .table-action-menu-item:has(.task-status-badge-menu) {
+  padding: 4px;
 }
 
 .projecthub-port .table-action-menu-item:hover {
@@ -505,18 +511,6 @@
   min-width: 0;
 }
 
-.projecthub-port .task-check {
-  width: 18px;
-  height: 18px;
-  margin-top: 0;
-  padding: 0;
-  border: 1px solid var(--border-strong);
-  border-radius: 999px;
-  background: var(--surface-bg);
-  cursor: pointer;
-  flex-shrink: 0;
-}
-
 .projecthub-port .task-badge,
 .projecthub-port .task-date,
 .projecthub-port .task-status-badge {
@@ -537,6 +531,22 @@
 
 .projecthub-port .task-status-badge {
   text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.projecthub-port .task-status-badge-trigger {
+  cursor: pointer;
+  border: 1px solid var(--border-color);
+}
+
+.projecthub-port .task-status-badge-menu {
+  width: 100%;
+  justify-content: center;
+  min-height: 28px;
+  padding: 6px 10px;
+  border-radius: var(--radius-pill);
+  font-size: 0.72rem;
+  font-weight: 700;
   letter-spacing: 0.03em;
 }
 
@@ -574,29 +584,24 @@
   margin-left: 2px;
 }
 
-.projecthub-port .task-check-indicator {
-  display: block;
-  width: 100%;
-  height: 100%;
-  border-radius: inherit;
-  transform: scale(0.6);
-}
-
-.projecthub-port .task-check.is-done {
-  border-color: var(--color-success, #16a34a);
-  background: color-mix(in srgb, var(--color-success, #16a34a) 12%, var(--surface-bg));
-}
-
-.projecthub-port .task-check.is-done .task-check-indicator {
-  background: var(--color-success, #16a34a);
+.projecthub-port .task-badge-priority-low {
+  border-color: color-mix(in srgb, #c18b08 32%, var(--border-color));
+  color: #a26b00;
+  background: color-mix(in srgb, #c18b08 8%, var(--surface-bg));
 }
 
 .projecthub-port .task-badge-priority-medium {
-  border-color: color-mix(in srgb, var(--color-warning, #d97706) 35%, var(--border-color));
-  color: var(--color-warning, #d97706);
+  border-color: color-mix(in srgb, #2563eb 35%, var(--border-color));
+  color: #1d4ed8;
+  background: color-mix(in srgb, #2563eb 8%, var(--surface-bg));
 }
 
-.projecthub-port .task-badge-priority-high,
+.projecthub-port .task-badge-priority-high {
+  border-color: color-mix(in srgb, var(--color-danger, #dc2626) 35%, var(--border-color));
+  color: var(--color-danger, #dc2626);
+  background: color-mix(in srgb, var(--color-danger, #dc2626) 8%, var(--surface-bg));
+}
+
 .projecthub-port .task-date.is-overdue {
   border-color: color-mix(in srgb, var(--color-danger, #dc2626) 35%, var(--border-color));
   color: var(--color-danger, #dc2626);
@@ -617,6 +622,10 @@
   min-height: 28px;
   padding: 4px 9px;
   font-size: 0.74rem;
+}
+
+.projecthub-port .tasks-hero-title {
+  font-size: clamp(1.35rem, 2.2vw, 1.8rem);
 }
 
 .projecthub-port .tasks-empty-state {
@@ -692,14 +701,26 @@
 }
 
 .projecthub-port .calendar-filters {
-  padding-bottom: 4px;
+  padding: 18px 18px 16px;
 }
 
 .projecthub-port .calendar-filters-row {
   display: flex;
   flex-wrap: wrap;
-  align-items: flex-end;
+  align-items: stretch;
   gap: 12px;
+}
+
+.projecthub-port .calendar-filters-row .table-filter-field {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 76px;
+}
+
+.projecthub-port .calendar-filters-row .table-filter-field input,
+.projecthub-port .calendar-filters-row .table-filter-field select {
+  min-height: 40px;
 }
 
 .projecthub-port .calendar-group {
@@ -1096,6 +1117,10 @@
 .projecthub-port .create-project-modal {
   width: min(100%, 520px);
   padding: 0;
+}
+
+.projecthub-port .create-project-modal-wide {
+  width: min(100%, 720px);
 }
 
 .projecthub-port .modal-header {

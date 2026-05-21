@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState, type FormEvent } from "react";
+import { useEffect, useState, type FormEvent } from "react";
 import { createActionItem } from "./mock-api";
 import type { ActionItem, CreateActionItemInput, ProjectSummary } from "./types";
 
@@ -19,7 +19,7 @@ function getErrorMessage(error: unknown) {
 
 export function ActionItemCreateModal({
   open,
-  projects,
+  projects: _projects,
   onClose,
   onCreated,
 }: ActionItemCreateModalProps) {
@@ -29,7 +29,7 @@ export function ActionItemCreateModal({
   const [showInCalendar, setShowInCalendar] = useState(false);
   const [priority, setPriority] = useState<CreateActionItemInput["priority"]>("medium");
   const [source, setSource] = useState<CreateActionItemInput["source"]>("manual");
-  const [projectId, setProjectId] = useState("");
+  const [projectName, setProjectName] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -44,19 +44,10 @@ export function ActionItemCreateModal({
     setShowInCalendar(false);
     setPriority("medium");
     setSource("manual");
-    setProjectId("");
+    setProjectName("");
     setIsSubmitting(false);
     setError(null);
   }, [open]);
-
-  const sortedProjects = useMemo(() => {
-    return [...projects].sort((a, b) => {
-      const left = a.reference ? `${a.reference} ${a.name}` : a.name;
-      const right = b.reference ? `${b.reference} ${b.name}` : b.name;
-
-      return left.localeCompare(right, "es");
-    });
-  }, [projects]);
 
   if (!open) {
     return null;
@@ -81,7 +72,7 @@ export function ActionItemCreateModal({
       showInCalendar: showInCalendar || undefined,
       priority,
       source,
-      projectId: projectId || undefined,
+      projectName: projectName.trim() || undefined,
     };
 
     setIsSubmitting(true);
@@ -101,7 +92,7 @@ export function ActionItemCreateModal({
     <div className="edt-modal-overlay" onClick={isSubmitting ? undefined : onClose} role="presentation">
       <div
         aria-modal="true"
-        className="edt-modal create-project-modal"
+        className="edt-modal create-project-modal create-project-modal-wide"
         onClick={(event) => event.stopPropagation()}
         role="dialog"
       >
@@ -202,20 +193,16 @@ export function ActionItemCreateModal({
               </div>
 
               <div className="form-field">
-                <label htmlFor="create-action-item-project">Proyecto</label>
-                <select
-                  id="create-action-item-project"
-                  value={projectId}
-                  onChange={(event) => setProjectId(event.target.value)}
-                >
-                  <option value="">Sin proyecto</option>
-                  {sortedProjects.map((project) => (
-                    <option key={project.id} value={project.id}>
-                      {project.reference ? `${project.reference} ${project.name}` : project.name}
-                    </option>
-                  ))}
-                </select>
-              </div>
+                <label htmlFor="create-action-item-project-name">Nº Proyecto</label>
+                <input
+                  id="create-action-item-project-name"
+                  placeholder="Ej. PH-2377"
+                  type="text"
+                  value={projectName}
+                  onChange={(event) => setProjectName(event.target.value)}
+                />
+              <span className="form-field-hint">El valor escrito se usará como agrupación del proyecto.</span>
+            </div>
             </div>
 
             <div className="form-field form-field-checkbox">

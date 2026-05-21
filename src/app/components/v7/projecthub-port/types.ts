@@ -52,6 +52,7 @@ export type CreateActionItemInput = {
   dueDate?: string | null;
   showInCalendar?: boolean;
   projectId?: string;
+  projectName?: string;
 };
 
 export type UpdateActionItemInput = {

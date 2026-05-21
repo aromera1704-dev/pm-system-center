@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState, type FormEvent } from "react";
+import { useEffect, useState, type FormEvent } from "react";
 import { createActionItem } from "../mock-api";
 import type { ActionItem, CreateActionItemInput, ProjectSummary } from "../types";
 
@@ -25,13 +25,13 @@ function getProjectDisplayName(project: ProjectSummary) {
 
 export function CalendarEventCreateModal({
   open,
-  projects,
+  projects: _projects,
   onClose,
   onCreated,
 }: CalendarEventCreateModalProps) {
   const [title, setTitle] = useState("");
   const [dueDate, setDueDate] = useState("");
-  const [projectId, setProjectId] = useState("");
+  const [projectName, setProjectName] = useState("");
   const [description, setDescription] = useState("");
   const [eventKind, setEventKind] = useState<CalendarEventKindOption>("quick");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -44,16 +44,12 @@ export function CalendarEventCreateModal({
 
     setTitle("");
     setDueDate("");
-    setProjectId("");
+    setProjectName("");
     setDescription("");
     setEventKind("quick");
     setIsSubmitting(false);
     setError(null);
   }, [open]);
-
-  const sortedProjects = useMemo(() => {
-    return [...projects].sort((a, b) => getProjectDisplayName(a).localeCompare(getProjectDisplayName(b), "es"));
-  }, [projects]);
 
   if (!open) {
     return null;
@@ -81,7 +77,7 @@ export function CalendarEventCreateModal({
       description: description.trim() || undefined,
       dueDate,
       showInCalendar: true,
-      projectId: projectId || undefined,
+      projectName: projectName.trim() || undefined,
       source: eventKind === "work" ? "other" : "manual",
     };
 
@@ -102,7 +98,7 @@ export function CalendarEventCreateModal({
     <div className="edt-modal-overlay" onClick={isSubmitting ? undefined : onClose} role="presentation">
       <div
         aria-modal="true"
-        className="edt-modal create-project-modal"
+        className="edt-modal create-project-modal create-project-modal-wide"
         onClick={(nativeEvent) => nativeEvent.stopPropagation()}
         role="dialog"
       >
@@ -173,19 +169,14 @@ export function CalendarEventCreateModal({
             </div>
 
             <div className="form-field">
-              <label htmlFor="calendar-event-project">Proyecto</label>
-              <select
+              <label htmlFor="calendar-event-project">Nº Proyecto</label>
+              <input
                 id="calendar-event-project"
-                value={projectId}
-                onChange={(nativeEvent) => setProjectId(nativeEvent.target.value)}
-              >
-                <option value="">Sin proyecto</option>
-                {sortedProjects.map((project) => (
-                  <option key={project.id} value={project.id}>
-                    {getProjectDisplayName(project)}
-                  </option>
-                ))}
-              </select>
+                placeholder="Ej. PH-2377"
+                type="text"
+                value={projectName}
+                onChange={(nativeEvent) => setProjectName(nativeEvent.target.value)}
+              />
             </div>
 
             <div className="form-field">

@@ -237,6 +237,7 @@ export function TasksPage() {
   const [search, setSearch] = useState("");
   const [showCompleted, setShowCompleted] = useState(false);
   const [openMenuItemId, setOpenMenuItemId] = useState<string | null>(null);
+  const [openStatusItemId, setOpenStatusItemId] = useState<string | null>(null);
 
   const { data, error, isLoading } = useAsyncData(
     async () => {
@@ -313,6 +314,36 @@ export function TasksPage() {
 
   const handleCreated = (item: ActionItem) => {
     setItems((current) => [item, ...current]);
+    if (item.project) {
+      setProjects((current) => {
+        if (current.some((project) => project.id === item.project!.id)) {
+          return current;
+        }
+
+        return [
+          {
+            id: item.project.id,
+            name: item.project.name,
+            client: null,
+            reference: item.project.reference,
+            status: "planned",
+            progress: 0,
+            createdAt: item.createdAt,
+            updatedAt: item.updatedAt,
+            dateStartPlan: null,
+            dateEndPlan: null,
+            dateFat: null,
+            dateIm: null,
+            datePo: null,
+            datePp: null,
+            dateAp: null,
+            datePem: null,
+            dateSat: null,
+          },
+          ...current,
+        ];
+      });
+    }
     setPageError(null);
   };
 
@@ -320,25 +351,8 @@ export function TasksPage() {
     setItems((current) => current.map((item) => (item.id === updatedItem.id ? updatedItem : item)));
     setEditingItem(null);
     setOpenMenuItemId(null);
+    setOpenStatusItemId(null);
     setPageError(null);
-  };
-
-  const handleToggleDone = async (item: ActionItem) => {
-    setIsTogglingId(item.id);
-    setPageError(null);
-
-    try {
-      const updated = await updateActionItem(item.id, {
-        status: item.status === "done" ? "pending" : "done",
-      });
-
-      setItems((current) => current.map((entry) => (entry.id === updated.id ? updated : entry)));
-      setOpenMenuItemId(null);
-    } catch (toggleError) {
-      setPageError(getErrorMessage(toggleError, "No se pudo actualizar la tarea"));
-    } finally {
-      setIsTogglingId(null);
-    }
   };
 
   const handleQuickStatus = async (item: ActionItem, newStatus: ActionItem["status"]) => {
@@ -349,6 +363,7 @@ export function TasksPage() {
       const updated = await updateActionItem(item.id, { status: newStatus });
       setItems((current) => current.map((existing) => (existing.id === updated.id ? updated : existing)));
       setOpenMenuItemId(null);
+      setOpenStatusItemId(null);
     } catch (err) {
       setPageError(getErrorMessage(err, "No se pudo actualizar la tarea"));
     } finally {
@@ -521,33 +536,74 @@ export function TasksPage() {
                   return (
                     <article className="task-row task-item" key={item.id}>
                       <div className="task-item-main">
-                        <button
-                          aria-label={item.status === "done" ? "Marcar como pendiente" : "Marcar como completada"}
-                          className={`task-check ${item.status === "done" ? "is-done" : ""}`}
-                          disabled={isTogglingId === item.id}
-                          onClick={() => void handleToggleDone(item)}
-                          type="button"
-                        >
-                          <span className="task-check-indicator" />
-                        </button>
-
                         <h3 className={`task-item-title ${item.status === "done" ? "is-done" : ""}`} title={item.title}>
                           {item.title}
                         </h3>
                       </div>
 
                       <div className="task-item-meta">
-                        <span
-                          className="status-badge task-status-badge"
-                          data-edt-status-tone={getEdtStatusTone(item.status)}
-                        >
-                          {statusLabels[item.status]}
+                        <div className="table-action-menu-wrap">
+                          <button
+                            aria-expanded={openStatusItemId === item.id}
+                            aria-haspopup="menu"
+                            className="status-badge task-status-badge task-status-badge-trigger"
+                            data-edt-status-tone={getEdtStatusTone(item.status)}
+                            disabled={isTogglingId === item.id}
+                            onClick={() => {
+                              setOpenMenuItemId(null);
+                              setOpenStatusItemId((current) => (current === item.id ? null : item.id));
+                            }}
+                            type="button"
+                          >
+                            {statusLabels[item.status]}
+                          </button>
+                          {openStatusItemId === item.id ? (
+                            <div className="table-action-menu" role="menu">
+                              <button
+                                className="table-action-menu-item"
+                                onClick={() => void handleQuickStatus(item, "pending")}
+                                role="menuitem"
+                                type="button"
+                              >
+                                <span
+                                  className="task-status-badge task-status-badge-menu"
+                                  data-edt-status-tone={getEdtStatusTone("pending")}
+                                >
+                                  Pendiente
+                                </span>
+                              </button>
+                              <button
+                                className="table-action-menu-item"
+                                onClick={() => void handleQuickStatus(item, "in_progress")}
+                                role="menuitem"
+                                type="button"
+                              >
+                                <span
+                                  className="task-status-badge task-status-badge-menu"
+                                  data-edt-status-tone={getEdtStatusTone("in_progress")}
+                                >
+                                  En curso
+                                </span>
+                              </button>
+                              <button
+                                className="table-action-menu-item"
+                                onClick={() => void handleQuickStatus(item, "done")}
+                                role="menuitem"
+                                type="button"
+                              >
+                                <span
+                                  className="task-status-badge task-status-badge-menu"
+                                  data-edt-status-tone={getEdtStatusTone("done")}
+                                >
+                                  Completada
+                                </span>
+                              </button>
+                            </div>
+                          ) : null}
+                        </div>
+                        <span className={`task-badge task-badge-priority-${item.priority}`}>
+                          {priorityLabels[item.priority]}
                         </span>
-                        {item.priority !== "low" ? (
-                          <span className={`task-badge task-badge-priority-${item.priority}`}>
-                            {priorityLabels[item.priority]}
-                          </span>
-                        ) : null}
                         {item.source !== "manual" ? <span className="task-badge">{sourceLabels[item.source]}</span> : null}
                         {item.showInCalendar && item.dueDate ? (
                           <span
@@ -564,42 +620,33 @@ export function TasksPage() {
                           </span>
                         ) : null}
                         <div className="task-actions">
-                          <button className="toolbar-button" onClick={() => setEditingItem(item)} type="button">
-                            Editar
-                          </button>
                           <div className="table-action-menu-wrap">
                             <button
                               aria-expanded={isMenuOpen}
                               aria-haspopup="menu"
                               aria-label={`Más acciones para ${item.title}`}
                               className="toolbar-button table-action-menu-trigger"
-                              onClick={() => setOpenMenuItemId((current) => (current === item.id ? null : item.id))}
+                              onClick={() => {
+                                setOpenStatusItemId(null);
+                                setOpenMenuItemId((current) => (current === item.id ? null : item.id));
+                              }}
                               type="button"
                             >
                               ⋯
                             </button>
                             {isMenuOpen ? (
                               <div className="table-action-menu" role="menu">
-                                {item.status === "pending" ? (
-                                  <button
-                                    className="table-action-menu-item"
-                                    onClick={() => void handleQuickStatus(item, "in_progress")}
-                                    role="menuitem"
-                                    type="button"
-                                  >
-                                    Marcar en curso
-                                  </button>
-                                ) : null}
-                                {item.status === "in_progress" ? (
-                                  <button
-                                    className="table-action-menu-item"
-                                    onClick={() => void handleQuickStatus(item, "pending")}
-                                    role="menuitem"
-                                    type="button"
-                                  >
-                                    Marcar pendiente
-                                  </button>
-                                ) : null}
+                                <button
+                                  className="table-action-menu-item"
+                                  onClick={() => {
+                                    setOpenMenuItemId(null);
+                                    setEditingItem(item);
+                                  }}
+                                  role="menuitem"
+                                  type="button"
+                                >
+                                  Editar
+                                </button>
                                 <button
                                   className="table-action-menu-item table-action-menu-item-danger"
                                   onClick={() => {
@@ -636,9 +683,9 @@ export function TasksPage() {
             <div className="project-detail-hero">
               <div className="project-header-copy project-detail-header-copy">
                 <span className="eyebrow">Workspace</span>
-                <h1 className="hero-title project-detail-title">Mis Tareas</h1>
+                <h1 className="hero-title project-detail-title tasks-hero-title">Mis tareas</h1>
                 <p className="project-detail-meta">
-                  <span>Acciones, recordatorios y tareas de seguimiento fuera de la EDT.</span>
+                  <span>Acciones, recordatorios y tareas de seguimiento</span>
                 </p>
               </div>
             </div>

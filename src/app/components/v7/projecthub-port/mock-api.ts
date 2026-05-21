@@ -155,6 +155,29 @@ let actionItems: ActionItem[] = [
 
 const projects = [...baseProjects];
 
+function createProjectSummary(name: string): ProjectSummary {
+  const timestamp = new Date().toISOString();
+  return {
+    id: `proj-${Math.random().toString(36).slice(2, 10)}`,
+    name,
+    client: null,
+    reference: null,
+    status: "planned",
+    progress: 0,
+    createdAt: timestamp,
+    updatedAt: timestamp,
+    dateStartPlan: null,
+    dateEndPlan: null,
+    dateFat: null,
+    dateIm: null,
+    datePo: null,
+    datePp: null,
+    dateAp: null,
+    datePem: null,
+    dateSat: null,
+  };
+}
+
 function cloneProjects() {
   return projects.map((project) => ({ ...project }));
 }
@@ -180,7 +203,22 @@ function hydrateProject(projectId: string | null | undefined) {
 
 function normalizeCreateInput(input: CreateActionItemInput): ActionItem {
   const timestamp = new Date().toISOString();
-  const projectId = input.projectId ?? null;
+  const trimmedProjectName = input.projectName?.trim() ?? "";
+  let projectId = input.projectId ?? null;
+
+  if (!projectId && trimmedProjectName) {
+    const existingProject = projects.find(
+      (project) => project.name.toLocaleLowerCase("es") === trimmedProjectName.toLocaleLowerCase("es"),
+    );
+
+    if (existingProject) {
+      projectId = existingProject.id;
+    } else {
+      const createdProject = createProjectSummary(trimmedProjectName);
+      projects.unshift(createdProject);
+      projectId = createdProject.id;
+    }
+  }
 
   return {
     id: `act-${Math.random().toString(36).slice(2, 10)}`,
