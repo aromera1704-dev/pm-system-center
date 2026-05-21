@@ -2,10 +2,10 @@ import { motion } from 'motion/react';
 import { TrendingUp, TrendingDown, Minus } from 'lucide-react';
 
 const metrics = [
-  { label: 'Proyectos Activos', value: '12', trend: 'up', change: '+2' },
-  { label: 'Sistemas Operativos', value: '77', trend: 'stable', change: '0' },
-  { label: 'Automatizaciones', value: '8', trend: 'up', change: '+1' },
-  { label: 'SAT en Curso', value: '2', trend: 'down', change: '-1' },
+  { label: 'Tareas pendientes', value: '12', trend: 'up', change: '+2' },
+  { label: 'Tareas vencidas', value: '3', trend: 'down', change: '+1' },
+  { label: 'Hitos próximos', value: '5', trend: 'up', change: '+2' },
+  { label: 'Riesgos abiertos', value: '2', trend: 'stable', change: '0' },
 ];
 
 export function LiveMetrics() {
