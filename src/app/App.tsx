@@ -10,6 +10,8 @@ import { OrbitalCore } from './components/v7/orbital-core';
 import { QuickActions } from './components/v7/quick-actions';
 import { LiveMetrics } from './components/v7/live-metrics';
 import { RecentActivity } from './components/v7/recent-activity';
+import { MyTasksWorkspace } from './components/v7/my-tasks-workspace';
+import { CalendarWorkspace } from './components/v7/calendar-workspace';
 import { Badge } from './components/ui/badge';
 import { Button } from './components/ui/button';
 import {
@@ -65,23 +67,23 @@ const moduleViewConfig: Record<
     ],
   },
   [navigationModuleIds.myTasks]: {
-    statusLabel: 'Placeholder interno',
-    statusVariant: 'outline',
-    summary: 'Módulo interno provisional para concentrar trabajo asignado, prioridad operativa y seguimiento inmediato.',
+    statusLabel: 'Operativo local',
+    statusVariant: 'system',
+    summary: 'Vista funcional inicial para seguimiento personal, priorización y control de acciones con datos mock locales.',
     actions: [
       { label: 'Ver cola priorizada', variant: 'system' },
       { label: 'Revisar bloqueos', variant: 'secondary' },
-      { label: 'Preparar módulo real', variant: 'ghost' },
+      { label: 'Crear criterio de cierre', variant: 'ghost' },
     ],
   },
   [navigationModuleIds.calendar]: {
-    statusLabel: 'Placeholder interno',
-    statusVariant: 'outline',
-    summary: 'Módulo interno provisional para agenda, hitos y coordinación temporal sin integración de calendario real todavía.',
+    statusLabel: 'Operativo local',
+    statusVariant: 'system',
+    summary: 'Vista funcional inicial para agenda operativa y hitos con navegación temporal y datos mock locales.',
     actions: [
       { label: 'Ver agenda operativa', variant: 'system' },
       { label: 'Revisar hitos', variant: 'secondary' },
-      { label: 'Preparar integración', variant: 'ghost' },
+      { label: 'Contrastar cargas', variant: 'ghost' },
     ],
   },
   [navigationModuleIds.tools]: {
@@ -94,6 +96,16 @@ const moduleViewConfig: Record<
       { label: 'Revisar n8n', variant: 'ghost' },
     ],
   },
+  [navigationModuleIds.system]: {
+    statusLabel: 'Configuración local',
+    statusVariant: 'outline',
+    summary: 'Acceso interno para criterios del shell, estado visual y próximos puntos de ajuste del centro operativo.',
+    actions: [
+      { label: 'Revisar shell activo', variant: 'system' },
+      { label: 'Ver estado visual', variant: 'secondary' },
+      { label: 'Abrir ajustes base', variant: 'ghost' },
+    ],
+  },
 };
 
 export default function App() {
@@ -103,6 +115,9 @@ export default function App() {
   const activeModuleView =
     activeSection === 'home' ? undefined : moduleViewConfig[activeSection];
   const isHome = activeSection === 'home';
+  const isTasksModule = activeSection === navigationModuleIds.myTasks;
+  const isCalendarModule = activeSection === navigationModuleIds.calendar;
+  const isFunctionalWorkspace = isTasksModule || isCalendarModule;
   const isExternalModuleActive =
     activeModule?.type === 'external' && activeModule?.status === 'available';
   const externalModuleCtaLabel =
@@ -146,6 +161,17 @@ export default function App() {
           },
         ]
       : [];
+  const contextTitle = 'Contexto del módulo';
+  const contextDescription =
+    'Vista mínima para validar que el shell ya responde como centro operativo modular y no como dashboard estático.';
+  const integrationDescription =
+    activeModule?.type === 'external'
+      ? activeModule?.status === 'available'
+        ? 'El shell ya entrega acceso operativo al módulo real en nueva pestaña.'
+        : 'El shell ya reconoce el módulo, pero la app real sigue desacoplada.'
+      : 'El módulo puede evolucionar dentro del shell sin dependencia externa inmediata.';
+  const shellActionDescription =
+    'Esta sección sirve como placeholder funcional para navegación interna, no como implementación final del módulo.';
 
   return (
     <div className="min-h-screen bg-[var(--pm-bg-primary)] relative overflow-hidden">
@@ -187,7 +213,20 @@ export default function App() {
       <StatusBar />
 
       {/* Main content */}
-      <div className="ml-20 min-h-screen flex pt-14">
+      <div className={`ml-20 min-h-screen ${isFunctionalWorkspace ? 'pt-14' : 'flex pt-14'}`}>
+        {isFunctionalWorkspace ? (
+          <div className="px-16 py-12">
+            <motion.div
+              key={activeSection}
+              initial={{ opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.35 }}
+            >
+              {isTasksModule ? <MyTasksWorkspace /> : <CalendarWorkspace />}
+            </motion.div>
+          </div>
+        ) : (
+          <>
         {/* Left section: Hero + Command + Quick Actions */}
         <div className="flex-1 px-16 py-12 flex flex-col">
           {isHome ? (
@@ -404,10 +443,10 @@ export default function App() {
               >
                 <div className="mb-6">
                   <div className="text-sm font-semibold text-[var(--pm-text-primary)] uppercase tracking-wide mb-1">
-                    Contexto del módulo
+                    {contextTitle}
                   </div>
                   <p className="text-sm text-[var(--pm-text-secondary)] leading-7">
-                    Vista mínima para validar que el shell ya responde como centro operativo modular y no como dashboard estático.
+                    {contextDescription}
                   </p>
                 </div>
 
@@ -429,11 +468,7 @@ export default function App() {
                       Estado de integración
                     </div>
                     <p className="text-[var(--pm-text-primary)] leading-7">
-                      {activeModule?.type === 'external'
-                        ? activeModule?.status === 'available'
-                          ? 'El shell ya entrega acceso operativo al módulo real en nueva pestaña.'
-                          : 'El shell ya reconoce el módulo, pero la app real sigue desacoplada.'
-                        : 'El módulo puede evolucionar dentro del shell sin dependencia externa inmediata.'}
+                      {integrationDescription}
                     </p>
                   </div>
                   <div className="rounded-2xl border border-[var(--pm-border-default)] bg-[var(--pm-surface-secondary)] p-5">
@@ -441,7 +476,7 @@ export default function App() {
                       Acción de shell
                     </div>
                     <p className="text-[var(--pm-text-primary)] leading-7">
-                      Esta sección sirve como placeholder funcional para navegación interna, no como implementación final del módulo.
+                      {shellActionDescription}
                     </p>
                   </div>
                 </div>
@@ -449,6 +484,8 @@ export default function App() {
             )}
           </div>
         </div>
+          </>
+        )}
       </div>
     </div>
   );

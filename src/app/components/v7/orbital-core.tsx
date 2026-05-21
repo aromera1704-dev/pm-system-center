@@ -7,12 +7,12 @@ import {
 } from '../../navigation';
 
 const modules = [
-  { moduleId: navigationModuleIds.myTasks, icon: CheckSquare, angle: 0, color: 'var(--pm-primary-blue)', bg: 'var(--pm-primary-blue)', status: 'active' },
-  { moduleId: navigationModuleIds.calendar, icon: CalendarDays, angle: 60, color: 'var(--pm-primary-blue)', bg: 'var(--pm-primary-blue)', status: 'active' },
-  { moduleId: navigationModuleIds.pmMail, icon: Mail, angle: 120, color: 'var(--pm-text-secondary)', bg: 'var(--pm-surface-secondary)', status: 'idle' },
+  { moduleId: navigationModuleIds.myTasks, icon: CheckSquare, angle: 235, color: 'var(--pm-primary-blue)', bg: 'var(--pm-primary-blue)', status: 'active' },
+  { moduleId: navigationModuleIds.pmMail, icon: Mail, angle: 305, color: 'var(--pm-text-secondary)', bg: 'var(--pm-surface-secondary)', status: 'idle' },
   { moduleId: navigationModuleIds.projectHub, icon: Layers, angle: 180, color: 'var(--pm-primary-blue)', bg: 'var(--pm-primary-blue)', status: 'active' },
-  { moduleId: navigationModuleIds.controlPem, icon: Shield, angle: 240, color: 'var(--pm-primary-blue)', bg: 'var(--pm-primary-blue)', status: 'active' },
-  { moduleId: navigationModuleIds.tools, icon: Wrench, angle: 300, color: 'var(--pm-ai-magenta)', bg: 'var(--pm-ai-magenta)', status: 'active' },
+  { moduleId: navigationModuleIds.controlPem, icon: Shield, angle: 0, color: 'var(--pm-primary-blue)', bg: 'var(--pm-primary-blue)', status: 'active' },
+  { moduleId: navigationModuleIds.calendar, icon: CalendarDays, angle: 125, color: 'var(--pm-primary-blue)', bg: 'var(--pm-primary-blue)', status: 'active' },
+  { moduleId: navigationModuleIds.tools, icon: Wrench, angle: 55, color: 'var(--pm-ai-magenta)', bg: 'var(--pm-ai-magenta)', status: 'active' },
 ];
 
 type OrbitalCoreProps = {
@@ -69,11 +69,11 @@ export function OrbitalCore({ onModuleSelect }: OrbitalCoreProps) {
         const labelPosition =
           module.angle >= 315 || module.angle < 45
             ? 'left-full ml-3 top-1/2 -translate-y-1/2 text-left'
-            : module.angle >= 45 && module.angle < 135
-            ? 'top-full mt-2.5 left-1/2 -translate-x-1/2 text-center'
+          : module.angle >= 45 && module.angle < 135
+            ? 'bottom-full mb-2.5 left-1/2 -translate-x-1/2 text-center'
             : module.angle >= 135 && module.angle < 225
             ? 'right-full mr-3 top-1/2 -translate-y-1/2 text-right'
-            : 'bottom-full mb-2.5 left-1/2 -translate-x-1/2 text-center';
+            : 'top-full mt-2.5 left-1/2 -translate-x-1/2 text-center';
 
         return (
           <motion.div

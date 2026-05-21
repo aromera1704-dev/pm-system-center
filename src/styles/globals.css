@@ -1,0 +1,1367 @@
+.projecthub-port {
+  --border-color: var(--pm-border-default);
+  --border-strong: var(--pm-border-strong);
+  --surface-bg: var(--pm-surface-primary);
+  --surface-bg-soft: var(--pm-surface-secondary);
+  --surface-hover: var(--pm-surface-secondary);
+  --row-divider: var(--pm-border-default);
+  --row-hover-bg: var(--pm-surface-secondary);
+  --text-primary: var(--pm-text-primary);
+  --text-secondary: var(--pm-text-secondary);
+  --text-disabled: var(--pm-text-tertiary);
+  --primary-action: var(--pm-action-primary);
+  --primary-action-soft: color-mix(in srgb, var(--pm-action-primary) 12%, white);
+  --button-bg: var(--pm-surface-primary);
+  --button-border: var(--pm-border-default);
+  --button-text: var(--pm-text-secondary);
+  --button-primary-bg: var(--pm-action-primary);
+  --button-primary-border: var(--pm-action-primary);
+  --button-primary-text: var(--pm-text-inverse);
+  --radius-pill: 999px;
+  --radius-sm: 8px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --color-success: var(--pm-success);
+  --color-warning: var(--pm-warning);
+  --color-danger: var(--pm-error);
+  --edt-status-pending-bg: color-mix(in srgb, var(--pm-warning) 12%, white);
+  --edt-status-pending-text: var(--pm-warning);
+  --edt-status-progress-bg: color-mix(in srgb, var(--pm-action-primary) 12%, white);
+  --edt-status-progress-text: var(--pm-link);
+  --edt-status-completed-bg: color-mix(in srgb, var(--pm-success) 12%, white);
+  --edt-status-completed-text: var(--pm-success);
+  --edt-status-cancelled-bg: color-mix(in srgb, var(--pm-error) 10%, white);
+  --edt-status-cancelled-text: var(--pm-error);
+  --edt-status-neutral-bg: color-mix(in srgb, var(--pm-border-strong) 16%, white);
+  --edt-status-neutral-text: var(--pm-text-secondary);
+}
+
+.projecthub-port a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.projecthub-port .project-workspace-stack {
+  display: grid;
+  gap: 16px;
+}
+
+.projecthub-port.tasks-workspace-canvas {
+  width: min(1280px, 100%);
+  margin: 0 auto;
+}
+
+.projecthub-port .project-detail-hero-shell {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.projecthub-port .project-header-copy {
+  display: grid;
+  gap: 6px;
+}
+
+.projecthub-port .project-header-copy p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.84rem;
+}
+
+.projecthub-port .hero-title {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+
+.projecthub-port .hero-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+}
+
+.projecthub-port .eyebrow {
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.67rem;
+  color: var(--text-disabled);
+  font-weight: 500;
+}
+
+.projecthub-port .detail-block {
+  display: grid;
+  gap: 8px;
+  padding: 16px 18px;
+  border: 1px solid var(--border-color);
+  background: var(--surface-bg-soft);
+  border-radius: var(--radius-lg);
+}
+
+.projecthub-port .detail-block h2 {
+  margin: 0;
+  font-size: 0.98rem;
+  color: var(--text-primary);
+}
+
+.projecthub-port .detail-block p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.86rem;
+  line-height: 1.5;
+}
+
+.projecthub-port .project-detail-hero {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+}
+
+.projecthub-port .project-detail-header-copy {
+  gap: 8px;
+}
+
+.projecthub-port .project-detail-title {
+  font-size: clamp(1.1rem, 2vw, 1.45rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+.projecthub-port .project-detail-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.84rem;
+  line-height: 1.45;
+}
+
+.projecthub-port .project-detail-meta span {
+  position: relative;
+}
+
+.projecthub-port .project-detail-meta span + span::before {
+  content: "";
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  margin: 0 10px 2px 0;
+  border-radius: var(--radius-pill);
+  background: var(--text-disabled);
+  vertical-align: middle;
+}
+
+.projecthub-port .project-detail-actions {
+  align-items: flex-start;
+}
+
+.projecthub-port .project-detail-actions .toolbar-button {
+  min-height: 34px;
+}
+
+.projecthub-port .toolbar-button,
+.projecthub-port .ghost-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 32px;
+  padding: 0 12px;
+  border: 1px solid var(--button-border);
+  background: var(--button-bg);
+  color: var(--button-text);
+  font-size: 0.82rem;
+  transition: background-color 120ms ease, border-color 120ms ease, color 120ms ease;
+  cursor: pointer;
+  white-space: nowrap;
+  border-radius: var(--radius-md);
+}
+
+.projecthub-port .toolbar-button:hover,
+.projecthub-port .ghost-link:hover {
+  background: var(--surface-hover);
+  border-color: var(--border-strong);
+  color: var(--text-primary);
+}
+
+.projecthub-port .toolbar-button-primary {
+  background: var(--button-primary-bg);
+  border-color: var(--button-primary-border);
+  color: var(--button-primary-text);
+  font-weight: 500;
+}
+
+.projecthub-port .toolbar-button-primary:hover {
+  background: var(--primary-action);
+  border-color: var(--primary-action);
+  color: #ffffff;
+}
+
+.projecthub-port .toolbar-button-danger {
+  background: color-mix(in srgb, #b42318 12%, var(--surface-bg));
+  border-color: color-mix(in srgb, #b42318 34%, var(--border-color));
+  color: #b42318;
+  font-weight: 500;
+}
+
+.projecthub-port .toolbar-button-danger:hover {
+  background: #b42318;
+  border-color: #b42318;
+  color: #ffffff;
+}
+
+.projecthub-port .table-action-menu-wrap {
+  position: relative;
+}
+
+.projecthub-port .table-action-menu-trigger {
+  min-width: 32px;
+  width: 32px;
+  padding: 0;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.projecthub-port .table-action-menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  z-index: 10;
+  display: grid;
+  min-width: 164px;
+  padding: 6px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  background: var(--surface-bg);
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.12);
+}
+
+.projecthub-port .table-action-menu-item {
+  border: 0;
+  background: transparent;
+  color: var(--text-primary);
+  text-align: left;
+  padding: 8px 10px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+
+.projecthub-port .table-action-menu-item:hover {
+  background: var(--surface-hover);
+}
+
+.projecthub-port .table-action-menu-item-danger {
+  color: #b42318;
+}
+
+.projecthub-port .table-action-menu-item-danger:hover {
+  background: color-mix(in srgb, #b42318 10%, var(--surface-bg));
+}
+
+.projecthub-port .table-filter-field {
+  min-width: 140px;
+  flex: 1 1 140px;
+  max-width: 240px;
+}
+
+.projecthub-port .table-filter-field label,
+.projecthub-port .form-field label {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--text-secondary);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.projecthub-port .table-filter-field select,
+.projecthub-port .table-filter-field input {
+  width: 100%;
+  height: 32px;
+  padding: 0 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background: var(--surface-bg);
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 13px;
+}
+
+.projecthub-port .table-filter-field select:focus,
+.projecthub-port .table-filter-field input:focus,
+.projecthub-port .tasks-filter-field select:focus,
+.projecthub-port .tasks-filter-field input:focus {
+  outline: none;
+  border-color: var(--primary-action);
+}
+
+.projecthub-port .tasks-page {
+  display: grid;
+  gap: 16px;
+}
+
+.projecthub-port .tasks-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 0;
+}
+
+.projecthub-port .tasks-summary-stat {
+  flex: 1 1 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 12px 16px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background: var(--surface-bg);
+}
+
+.projecthub-port .tasks-summary-value {
+  color: var(--text-primary);
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.projecthub-port .tasks-summary-label {
+  color: var(--text-secondary);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.projecthub-port .tasks-summary-stat-overdue .tasks-summary-value {
+  color: var(--edt-status-cancelled-text, var(--color-danger, #ef4444));
+}
+
+.projecthub-port .tasks-summary-stat-done .tasks-summary-value {
+  color: var(--edt-status-completed-text, var(--color-success, #22c55e));
+}
+
+.projecthub-port .tasks-filters,
+.projecthub-port .tasks-group,
+.projecthub-port .tasks-empty-state {
+  display: grid;
+  gap: 16px;
+}
+
+.projecthub-port .tasks-filters-top,
+.projecthub-port .tasks-filters-bottom,
+.projecthub-port .tasks-group-head,
+.projecthub-port .task-row,
+.projecthub-port .task-main,
+.projecthub-port .task-body,
+.projecthub-port .task-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.projecthub-port .tasks-filters-top,
+.projecthub-port .tasks-filters-bottom,
+.projecthub-port .tasks-group-head,
+.projecthub-port .task-row,
+.projecthub-port .task-main,
+.projecthub-port .task-body {
+  align-items: flex-start;
+}
+
+.projecthub-port .tasks-filters-top,
+.projecthub-port .tasks-group-head,
+.projecthub-port .task-body {
+  justify-content: space-between;
+}
+
+.projecthub-port .tasks-tabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.projecthub-port .tasks-filters-top {
+  flex-wrap: wrap;
+}
+
+.projecthub-port .tasks-tab {
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-pill);
+  background: var(--surface-bg-soft);
+  color: var(--text-secondary);
+  padding: 8px 14px;
+  cursor: pointer;
+  transition: border-color 120ms ease, background-color 120ms ease, color 120ms ease;
+}
+
+.projecthub-port .tasks-tab:hover {
+  border-color: var(--border-strong);
+  color: var(--text-primary);
+}
+
+.projecthub-port .tasks-tab.active {
+  border-color: var(--primary-action);
+  background: color-mix(in srgb, var(--primary-action) 10%, var(--surface-bg-soft));
+  color: var(--primary-action);
+}
+
+.projecthub-port .tasks-filter-field {
+  min-width: 220px;
+  flex: 1 1 220px;
+}
+
+.projecthub-port .tasks-filter-search {
+  flex: 2 1 320px;
+}
+
+.projecthub-port .tasks-filter-field select,
+.projecthub-port .tasks-filter-field input {
+  width: 100%;
+  min-height: 42px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  background: var(--surface-bg-soft);
+  color: var(--text-primary);
+  padding: 10px 12px;
+}
+
+.projecthub-port .tasks-group-count {
+  color: var(--text-secondary);
+  font-size: 0.95em;
+  font-weight: 600;
+}
+
+.projecthub-port .tasks-group-head h2 {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  color: var(--text-primary);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.projecthub-port .tasks-group {
+  gap: 12px;
+}
+
+.projecthub-port .tasks-list {
+  display: grid;
+  gap: 6px;
+}
+
+.projecthub-port .task-row {
+  align-items: center;
+  min-height: 44px;
+  padding: 8px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  background: var(--surface-bg-soft);
+}
+
+.projecthub-port .task-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.projecthub-port .task-item-main {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  flex: 1;
+}
+
+.projecthub-port .task-item-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin: 0;
+  color: var(--text-primary);
+  font-size: 0.92rem;
+  line-height: 1.2;
+}
+
+.projecthub-port .task-item-title.is-done {
+  color: var(--text-secondary);
+  text-decoration: line-through;
+}
+
+.projecthub-port .task-item-meta {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+  flex-shrink: 0;
+  min-width: 0;
+}
+
+.projecthub-port .task-check {
+  width: 18px;
+  height: 18px;
+  margin-top: 0;
+  padding: 0;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  background: var(--surface-bg);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.projecthub-port .task-badge,
+.projecthub-port .task-date,
+.projecthub-port .task-status-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 22px;
+  padding: 3px 8px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-pill);
+  background: var(--surface-bg);
+  color: var(--text-secondary);
+  font-size: 0.7rem;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.projecthub-port .task-status-badge {
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.projecthub-port .task-status-badge[data-edt-status-tone="pending"] {
+  background: var(--edt-status-pending-bg);
+  color: var(--edt-status-pending-text);
+}
+
+.projecthub-port .task-status-badge[data-edt-status-tone="progress"] {
+  background: var(--edt-status-progress-bg);
+  color: var(--edt-status-progress-text);
+}
+
+.projecthub-port .task-status-badge[data-edt-status-tone="completed"] {
+  background: var(--edt-status-completed-bg);
+  color: var(--edt-status-completed-text);
+}
+
+.projecthub-port .task-status-badge[data-edt-status-tone="blocked"] {
+  background: var(--edt-status-neutral-bg);
+  color: var(--edt-status-neutral-text);
+}
+
+.projecthub-port .task-status-badge[data-edt-status-tone="cancelled"] {
+  background: var(--edt-status-cancelled-bg);
+  color: var(--edt-status-cancelled-text);
+}
+
+.projecthub-port .task-status-badge[data-edt-status-tone="neutral"] {
+  background: var(--edt-status-neutral-bg);
+  color: var(--edt-status-neutral-text);
+}
+
+.projecthub-port .task-date {
+  margin-left: 2px;
+}
+
+.projecthub-port .task-check-indicator {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  transform: scale(0.6);
+}
+
+.projecthub-port .task-check.is-done {
+  border-color: var(--color-success, #16a34a);
+  background: color-mix(in srgb, var(--color-success, #16a34a) 12%, var(--surface-bg));
+}
+
+.projecthub-port .task-check.is-done .task-check-indicator {
+  background: var(--color-success, #16a34a);
+}
+
+.projecthub-port .task-badge-priority-medium {
+  border-color: color-mix(in srgb, var(--color-warning, #d97706) 35%, var(--border-color));
+  color: var(--color-warning, #d97706);
+}
+
+.projecthub-port .task-badge-priority-high,
+.projecthub-port .task-date.is-overdue {
+  border-color: color-mix(in srgb, var(--color-danger, #dc2626) 35%, var(--border-color));
+  color: var(--color-danger, #dc2626);
+}
+
+.projecthub-port .task-date.is-today {
+  border-color: color-mix(in srgb, var(--primary-action) 35%, var(--border-color));
+  color: var(--primary-action);
+}
+
+.projecthub-port .task-actions {
+  flex-shrink: 0;
+  gap: 6px;
+  align-items: center;
+}
+
+.projecthub-port .task-actions .toolbar-button {
+  min-height: 28px;
+  padding: 4px 9px;
+  font-size: 0.74rem;
+}
+
+.projecthub-port .tasks-empty-state {
+  justify-items: start;
+}
+
+.projecthub-port .tasks-empty-state h2,
+.projecthub-port .tasks-group-head h2 {
+  margin: 0;
+}
+
+.projecthub-port .tasks-empty-state p {
+  margin: 0;
+  color: var(--text-secondary);
+}
+
+.projecthub-port .tasks-empty-state-filtered {
+  justify-items: stretch;
+}
+
+.projecthub-port .status-panel {
+  padding: 28px;
+  border: 1px solid var(--border-color);
+  background: var(--surface-bg-soft);
+  border-radius: var(--radius-lg);
+}
+
+.projecthub-port .status-panel.error {
+  color: var(--color-danger);
+}
+
+.projecthub-port .calendar-page {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.projecthub-port .calendar-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.projecthub-port .calendar-view-switch,
+.projecthub-port .calendar-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.projecthub-port .calendar-period-label {
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.projecthub-port .calendar-today-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 7px;
+  border-radius: 999px;
+  background: var(--primary-action-soft, rgba(249, 115, 22, 0.12));
+  color: var(--primary-action, #f97316);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.projecthub-port .calendar-filters {
+  padding-bottom: 4px;
+}
+
+.projecthub-port .calendar-filters-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.projecthub-port .calendar-group {
+  padding: 0;
+  overflow: hidden;
+}
+
+.projecthub-port .calendar-group-head {
+  padding: 14px 20px 12px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.projecthub-port .calendar-group-head h2 {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.projecthub-port .calendar-group[data-bucket="overdue"] .calendar-group-head h2 {
+  color: var(--color-danger, #dc3545);
+}
+
+.projecthub-port .calendar-group[data-bucket="today"] .calendar-group-head h2 {
+  color: var(--primary-action);
+}
+
+.projecthub-port .calendar-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.projecthub-port .calendar-event-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 20px;
+  border-bottom: 1px solid var(--row-divider);
+  transition: background 0.12s;
+}
+
+.projecthub-port .calendar-event-row:last-child {
+  border-bottom: none;
+}
+
+.projecthub-port .calendar-event-row:hover {
+  background: var(--row-hover-bg);
+}
+
+.projecthub-port .calendar-event-date-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  min-width: 36px;
+  gap: 1px;
+}
+
+.projecthub-port .calendar-event-day {
+  color: var(--text-primary);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.projecthub-port .calendar-event-month {
+  color: var(--text-secondary);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.projecthub-port .calendar-group[data-bucket="overdue"] .calendar-event-day {
+  color: var(--color-danger, #dc3545);
+}
+
+.projecthub-port .calendar-group[data-bucket="today"] .calendar-event-day {
+  color: var(--primary-action);
+}
+
+.projecthub-port .calendar-group[data-bucket="overdue"] .calendar-event-month {
+  color: var(--color-danger, #dc3545);
+  opacity: 0.8;
+}
+
+.projecthub-port .calendar-event-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+  gap: 2px;
+}
+
+.projecthub-port .calendar-event-title {
+  overflow: hidden;
+  color: var(--text-primary);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.projecthub-port .calendar-event-title:hover {
+  color: var(--primary-action, #f97316);
+  text-decoration: underline;
+}
+
+.projecthub-port .calendar-event-subtitle {
+  overflow: hidden;
+  color: var(--text-secondary);
+  font-size: 12px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.projecthub-port .calendar-event-meta {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  gap: 6px;
+}
+
+.projecthub-port .calendar-event-kind {
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.projecthub-port .calendar-event-kind-project {
+  background: var(--primary-action-soft, rgba(249, 115, 22, 0.12));
+  color: var(--primary-action, #f97316);
+}
+
+.projecthub-port .calendar-event-kind-task {
+  border: 1px solid var(--border-color);
+  background: var(--surface-bg, rgba(148, 163, 184, 0.08));
+  color: var(--text-secondary);
+}
+
+.projecthub-port .table-filter-field-disabled input {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.projecthub-port .calendar-week,
+.projecthub-port .calendar-month {
+  padding: 0;
+  overflow: hidden;
+}
+
+.projecthub-port .calendar-week-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+}
+
+.projecthub-port .calendar-week-day {
+  min-width: 0;
+  min-height: 240px;
+  padding: 14px 12px;
+  border-right: 1px solid var(--border-color);
+  border-top: 2px solid transparent;
+}
+
+.projecthub-port .calendar-week-day:last-child {
+  border-right: none;
+}
+
+.projecthub-port .calendar-week-day.is-today {
+  border-top-color: var(--primary-action);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--primary-action) 24%, transparent);
+  background: color-mix(in srgb, var(--primary-action) 7%, var(--surface-bg));
+}
+
+.projecthub-port .calendar-week-day-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  gap: 8px;
+}
+
+.projecthub-port .calendar-week-day-head-main {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+
+.projecthub-port .calendar-week-day-name {
+  color: var(--text-secondary);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.projecthub-port .calendar-week-day-number {
+  color: var(--text-primary);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.projecthub-port .calendar-week-day.is-today .calendar-week-day-number {
+  color: var(--primary-action);
+  font-size: 22px;
+}
+
+.projecthub-port .calendar-week-day-events {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.projecthub-port .calendar-week-event {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background: var(--surface-bg);
+  color: inherit;
+  text-decoration: none;
+}
+
+.projecthub-port .calendar-week-event:hover {
+  border-color: var(--primary-action);
+}
+
+.projecthub-port .calendar-week-event.is-overdue {
+  border-color: color-mix(in srgb, var(--color-danger, #dc3545) 30%, var(--border-color));
+  background: color-mix(in srgb, var(--color-danger, #dc3545) 6%, var(--surface-bg));
+}
+
+.projecthub-port .calendar-week-event-title {
+  color: var(--text-primary);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.projecthub-port .calendar-week-event-subtitle {
+  color: var(--text-secondary);
+  font-size: 12px;
+  line-height: 1.3;
+}
+
+.projecthub-port .calendar-month-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  border-bottom: 1px solid var(--border-color);
+}
+
+.projecthub-port .calendar-month-weekday {
+  padding: 10px 12px;
+  color: var(--text-secondary);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.projecthub-port .calendar-month-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+}
+
+.projecthub-port .calendar-month-cell {
+  min-width: 0;
+  min-height: 136px;
+  padding: 10px;
+  border-right: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  border-top: 2px solid transparent;
+}
+
+.projecthub-port .calendar-month-cell:nth-child(7n) {
+  border-right: none;
+}
+
+.projecthub-port .calendar-month-cell.is-muted {
+  background: color-mix(in srgb, var(--surface-bg) 70%, transparent);
+}
+
+.projecthub-port .calendar-month-cell.is-today {
+  border-top-color: var(--primary-action);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--primary-action) 22%, transparent);
+  background: color-mix(in srgb, var(--primary-action) 6%, var(--surface-bg));
+}
+
+.projecthub-port .calendar-month-cell-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  gap: 8px;
+}
+
+.projecthub-port .calendar-month-cell-number {
+  color: var(--text-primary);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.projecthub-port .calendar-month-cell.is-muted .calendar-month-cell-number {
+  color: var(--text-secondary);
+}
+
+.projecthub-port .calendar-month-cell.is-today .calendar-month-cell-number {
+  color: var(--primary-action);
+  font-size: 18px;
+}
+
+.projecthub-port .calendar-month-cell-events {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.projecthub-port .calendar-month-chip {
+  display: block;
+  overflow: hidden;
+  padding: 4px 6px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.25;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.projecthub-port .calendar-month-chip-project {
+  background: var(--primary-action-soft, rgba(249, 115, 22, 0.12));
+  color: var(--primary-action, #f97316);
+}
+
+.projecthub-port .calendar-month-chip-task {
+  border: 1px solid var(--border-color);
+  background: var(--surface-bg, rgba(148, 163, 184, 0.08));
+  color: var(--text-secondary);
+}
+
+.projecthub-port .calendar-month-chip.is-overdue {
+  border-color: color-mix(in srgb, var(--color-danger, #dc3545) 30%, var(--border-color));
+  color: var(--color-danger, #dc3545);
+}
+
+.projecthub-port .calendar-month-chip-task.is-overdue {
+  background: color-mix(in srgb, var(--color-danger, #dc3545) 5%, var(--surface-bg));
+}
+
+.projecthub-port .calendar-month-more {
+  color: var(--text-secondary);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.projecthub-port .edt-modal-overlay {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(15, 23, 42, 0.58);
+  backdrop-filter: blur(4px);
+  z-index: 40;
+}
+
+.projecthub-port .edt-modal {
+  width: min(100%, 760px);
+  max-height: min(90vh, 820px);
+  overflow-y: auto;
+  padding: 20px;
+  border: 1px solid var(--border-color);
+  background: var(--surface-bg);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-modal, 0 24px 80px rgba(0, 0, 0, 0.28));
+}
+
+.projecthub-port .edt-delete-modal {
+  width: min(100%, 520px);
+}
+
+.projecthub-port .create-project-modal {
+  width: min(100%, 520px);
+  padding: 0;
+}
+
+.projecthub-port .modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 24px 16px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.projecthub-port .modal-header-copy {
+  display: grid;
+  gap: 6px;
+}
+
+.projecthub-port .modal-header-copy .eyebrow {
+  margin: 0;
+}
+
+.projecthub-port .modal-header h2 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.projecthub-port .modal-close {
+  border: 0;
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 1.25rem;
+  line-height: 1;
+  padding: 0;
+}
+
+.projecthub-port .modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px 24px;
+}
+
+.projecthub-port .modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 16px 24px 20px;
+  border-top: 1px solid var(--border-color);
+}
+
+.projecthub-port .modal-error {
+  margin: 0;
+  color: var(--color-danger, #dc2626);
+  font-size: 0.85rem;
+}
+
+.projecthub-port .task-create-panel {
+  display: grid;
+  gap: 12px;
+}
+
+.projecthub-port .task-create-panel-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.projecthub-port .task-create-panel-head h2 {
+  margin: 0;
+}
+
+.projecthub-port .task-create-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-start;
+}
+
+.projecthub-port .edt-delete-copy {
+  margin: 0;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.projecthub-port .form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.projecthub-port .form-field label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.projecthub-port .form-field input,
+.projecthub-port .form-field textarea,
+.projecthub-port .form-field select {
+  width: 100%;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  background: var(--surface-bg-soft);
+  color: var(--text-primary);
+  padding: 10px 12px;
+}
+
+.projecthub-port .form-field textarea {
+  resize: vertical;
+}
+
+.projecthub-port .form-field input:focus,
+.projecthub-port .form-field textarea:focus,
+.projecthub-port .form-field select:focus {
+  outline: none;
+  border-color: var(--primary-action);
+}
+
+.projecthub-port .tasks-modal-body {
+  gap: 18px;
+}
+
+.projecthub-port .tasks-modal-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.projecthub-port .form-field-checkbox {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.projecthub-port .checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-primary);
+  font-size: 14px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.projecthub-port .checkbox-label input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--primary-action);
+  cursor: pointer;
+}
+
+.projecthub-port .checkbox-label input[type="checkbox"]:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.projecthub-port .form-field-hint {
+  padding-left: 24px;
+  color: var(--text-secondary);
+  font-size: 12px;
+}
+
+.projecthub-port .calendar-modal-hint {
+  padding-left: 0;
+}
+
+@media (max-width: 960px) {
+  .projecthub-port .tasks-filters-top,
+  .projecthub-port .tasks-filters-bottom {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .projecthub-port .task-item-meta {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 720px) {
+  .projecthub-port .task-row {
+    align-items: flex-start;
+    min-height: auto;
+  }
+
+  .projecthub-port .task-item {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .projecthub-port .task-item-main,
+  .projecthub-port .task-item-meta {
+    width: 100%;
+  }
+
+  .projecthub-port .task-item-meta {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .projecthub-port .task-actions {
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .projecthub-port .modal-header,
+  .projecthub-port .modal-body,
+  .projecthub-port .modal-footer {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+
+  .projecthub-port .modal-footer {
+    flex-direction: column-reverse;
+  }
+
+  .projecthub-port .modal-footer .toolbar-button {
+    width: 100%;
+  }
+
+  .projecthub-port .tasks-modal-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .projecthub-port .calendar-toolbar {
+    align-items: stretch;
+  }
+
+  .projecthub-port .calendar-view-switch,
+  .projecthub-port .calendar-nav {
+    width: 100%;
+  }
+
+  .projecthub-port .calendar-filters-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .projecthub-port .calendar-event-row {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .projecthub-port .calendar-event-meta {
+    width: 100%;
+  }
+
+  .projecthub-port .calendar-week-grid,
+  .projecthub-port .calendar-month-weekdays,
+  .projecthub-port .calendar-month-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .projecthub-port .calendar-week-day,
+  .projecthub-port .calendar-month-cell {
+    min-height: auto;
+    border-right: none;
+  }
+
+  .projecthub-port .calendar-month-weekday {
+    display: none;
+  }
+}

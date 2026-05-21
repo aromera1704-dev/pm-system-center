@@ -14,6 +14,7 @@ export const navigationModuleIds = {
   myTasks: "my-tasks",
   calendar: "calendar",
   tools: "tools",
+  system: "system",
   projectHub: "project-hub",
   pmMail: "pm-mail",
   controlPem: "control-pem",
@@ -78,9 +79,23 @@ export const navigationModules: NavigationModule[] = [
     href: "#tools",
     type: "internal",
   },
+  {
+    id: "system",
+    label: "Configuración",
+    description: "Ajustes del shell, base visual y criterios operativos del centro PM System.",
+    status: "available",
+    href: "#system",
+    type: "internal",
+  },
 ];
 
-export const primaryNavigationModules = navigationModules;
+export const primaryNavigationModules = navigationModules.filter(
+  (module) => module.id !== navigationModuleIds.system,
+);
+
+export const systemNavigationModule = navigationModules.find(
+  (module) => module.id === navigationModuleIds.system,
+)!;
 
 export function getNavigationModule(id: string) {
   return navigationModules.find((module) => module.id === id);

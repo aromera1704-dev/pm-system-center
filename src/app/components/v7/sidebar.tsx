@@ -5,10 +5,12 @@ import {
   Layers,
   Mail,
   Shield,
+  Settings,
   Wrench,
 } from 'lucide-react';
 import {
   primaryNavigationModules,
+  systemNavigationModule,
   type NavigationModuleId,
 } from '../../navigation';
 
@@ -19,6 +21,7 @@ const iconMap = {
   'pm-mail': Mail,
   'control-pem': Shield,
   tools: Wrench,
+  system: Settings,
 } as const;
 
 type SidebarProps = {
@@ -92,6 +95,24 @@ export function Sidebar({
           </button>
         )})}
       </nav>
+
+      <button
+        type="button"
+        onClick={() => onModuleSelect(systemNavigationModule.id)}
+        className={`group relative flex items-center justify-center w-12 h-12 rounded-xl transition-all duration-300 ${
+          systemNavigationModule.id === activeModuleId
+            ? 'bg-[var(--pm-soft-blue-bg)] text-[var(--pm-link)] shadow-sm'
+            : 'text-[var(--pm-text-secondary)] hover:text-[var(--pm-link)] hover:bg-[var(--pm-surface-secondary)]'
+        }`}
+        title={systemNavigationModule.label}
+        aria-label={systemNavigationModule.label}
+        aria-pressed={systemNavigationModule.id === activeModuleId}
+      >
+        <Settings className="w-5 h-5" />
+        <div className="absolute left-full ml-3 px-3 py-1.5 bg-[var(--pm-surface-tooltip)] backdrop-blur-md rounded-lg text-sm text-[var(--pm-surface-tooltip-foreground)] opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap shadow-xl">
+          {systemNavigationModule.label}
+        </div>
+      </button>
     </div>
   );
 }
